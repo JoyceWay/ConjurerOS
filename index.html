@@ -1,0 +1,2322 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>CONJURER OS // 召唤师硅基法典 | Verified Arcane Arsenal & Training Crucible</title>
+  <meta name="description" content="CONJURER OS (conjurerlab.us) — 召唤师硅基法典：6个月真传进化星图、活体XML咒语炼金炉、破妄镜反谄媚审计器、万灵调度罗盘与代码三阀门解剖台。" />
+  <meta property="og:title" content="CONJURER OS // 召唤师硅基法典" />
+  <meta property="og:description" content="Verified Arcane Arsenal & 6-Month Sovereign Conjurer Training Crucible for Solo AI Builders." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://conjurerlab.us" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Instrument Serif, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              950: '#06070B',
+              900: '#090A0F',
+              800: '#11131C',
+              700: '#181B28',
+              600: '#232738'
+            },
+            ivory: '#F3EFEA',
+            stone: '#9E9A90',
+            silicon: {
+              cyan: '#00F0FF',
+              dim: 'rgba(0, 240, 255, 0.12)'
+            },
+            alchemy: {
+              amber: '#FFB800',
+              gold: '#D4A359',
+              dim: 'rgba(255, 184, 0, 0.12)'
+            },
+            crimson: '#F43F5E',
+            emerald: '#10B981'
+          },
+          fontFamily: {
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-obsidian: #090A0F;
+      --border-hairline: rgba(255, 255, 255, 0.08);
+      --ease-architect: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      color: #F3EFEA;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Architectural Ruler Grid Background */
+    .ruler-grid-bg {
+      background-size: 40px 40px;
+      background-image:
+        linear-gradient(to right, rgba(212, 163, 89, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(212, 163, 89, 0.05) 1px, transparent 1px);
+    }
+
+    .ruler-ticks-top {
+      background-image: repeating-linear-gradient(
+        to right,
+        rgba(212, 163, 89, 0.45) 0px,
+        rgba(212, 163, 89, 0.45) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+    }
+
+    /* Architectural Panel Surface */
+    .os-panel {
+      background: linear-gradient(155deg, rgba(17, 19, 28, 0.95), rgba(9, 10, 15, 0.98));
+      border: 1px solid var(--border-hairline);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.78);
+      transition: border-color 0.28s var(--ease-architect), transform 0.28s var(--ease-architect), box-shadow 0.28s var(--ease-architect);
+    }
+
+    .os-panel:hover {
+      border-color: rgba(212, 163, 89, 0.32);
+    }
+
+    /* SVG Atlas Path & Beacon Animations */
+    @keyframes flowDash {
+      to { stroke-dashoffset: -48; }
+    }
+    .svg-neural-flow {
+      stroke-dasharray: 6 6;
+      animation: flowDash 2.2s linear infinite;
+    }
+
+    @keyframes pulseHalo {
+      0% { transform: scale(0.92); opacity: 0.85; }
+      75% { transform: scale(1.95); opacity: 0; }
+      100% { transform: scale(2.1); opacity: 0; }
+    }
+    .svg-pulse-ring {
+      transform-origin: center;
+      transform-box: fill-box;
+      animation: pulseHalo 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    }
+
+    @keyframes astrolabeSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin-slow {
+      transform-origin: center;
+      animation: astrolabeSpin 64s linear infinite;
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #090A0F; }
+    ::-webkit-scrollbar-thumb { background: #232738; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #D4A359; }
+  </style>
+</head>
+
+<body class="ruler-grid-bg min-h-screen selection:bg-silicon-cyan/25 selection:text-silicon-cyan relative">
+
+  <!-- ===================================================================== -->
+  <!-- TOP COMMAND HUD & TELEMETRY BAR                                       -->
+  <!-- ===================================================================== -->
+  <div class="sticky top-0 z-50 bg-obsidian-950/90 backdrop-blur-md border-b border-white/10">
+    <div class="h-1.5 w-full ruler-ticks-top opacity-80"></div>
+
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      <!-- Brand Identity -->
+      <div class="flex items-center gap-3">
+        <a href="#top" class="flex items-center gap-3 group focus:outline-none">
+          <div class="relative w-10 h-10 rounded-xl bg-obsidian-800 border border-alchemy-gold/40 flex items-center justify-center group-hover:border-silicon-cyan transition-colors">
+            <!-- Sacred Crystal Astrolabe SVG -->
+            <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="30" r="21" stroke="#D4A359" stroke-width="1.4" stroke-dasharray="3 2" class="spin-slow"/>
+              <circle cx="32" cy="30" r="15" stroke="#00F0FF" stroke-width="1.5" fill="rgba(0,240,255,0.08)"/>
+              <polygon points="32,15 45,38 19,38" stroke="#FFB800" stroke-width="1.2" fill="none" opacity="0.85"/>
+              <circle cx="32" cy="30" r="3.5" fill="#00F0FF"/>
+              <path d="M20 50H44L40 56H24L20 50Z" stroke="#D4A359" stroke-width="1.4" fill="rgba(212,163,89,0.2)"/>
+            </svg>
+            <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald animate-ping"></span>
+            <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald"></span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-serif text-xl sm:text-2xl tracking-wide text-ivory">CONJURER OS</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.5 rounded bg-alchemy-amber/15 text-alchemy-amber border border-alchemy-amber/30 font-semibold">召唤师硅基法典</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] font-mono text-stone">
+              <span id="hud-domain-label">conjurerlab.us</span>
+              <span>·</span>
+              <a id="hud-main-portal-link" href="https://conjurer.us" target="_blank" rel="noopener noreferrer" class="text-silicon-cyan hover:underline">⇄ 主城 conjurer.us</a>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center Live Mastery Telemetry & XP Progress -->
+      <div class="hidden xl:flex items-center gap-3.5 px-3.5 py-1.5 rounded-xl bg-obsidian-800/90 border border-white/10 font-mono text-xs">
+        <div class="flex items-center gap-1.5">
+          <span class="text-alchemy-amber">⚡ 境界:</span>
+          <span id="hud-rank-badge" class="text-ivory font-semibold">见习召唤师 (Apprentice)</span>
+        </div>
+        <div class="w-28 h-2 bg-obsidian-950 rounded-full overflow-hidden border border-white/10">
+          <div id="hud-xp-bar" class="h-full bg-gradient-to-r from-alchemy-amber via-emerald to-silicon-cyan transition-all duration-500" style="width: 16%"></div>
+        </div>
+        <span id="hud-xp-text" class="text-silicon-cyan text-[11px]">1/6 结印</span>
+        <span class="text-white/20">|</span>
+        <span id="hud-coords" class="text-stone text-[11px]">X:0000 // Y:0000</span>
+      </div>
+
+      <!-- Right Navigation & Mode Switches -->
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        <a href="#atlas-crucible" class="px-2.5 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-white/10 text-xs font-mono text-ivory transition-colors">
+          🗺️ 六月星图
+        </a>
+        <a href="#sovereign-instruments" class="px-2.5 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-silicon-cyan/30 text-xs font-mono text-silicon-cyan transition-colors">
+          🔥 四大法宝
+        </a>
+        <a href="#code-xray-manuals" class="px-2.5 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-alchemy-amber/30 text-xs font-mono text-alchemy-amber transition-colors">
+          🔬 透视秘籍
+        </a>
+        <button onclick="openSparkModal()" class="px-2.5 py-1.5 rounded-lg bg-alchemy-amber/15 hover:bg-alchemy-amber/25 border border-alchemy-amber/40 text-xs font-mono text-alchemy-amber transition-all flex items-center gap-1">
+          <span>✨</span>
+          <span>Spark Me</span>
+        </button>
+
+        <!-- Bilingual Display Toggle -->
+        <button id="btn-lang-toggle" onclick="toggleLanguageMode()" class="px-2 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-white/15 text-[11px] font-mono text-stone hover:text-ivory transition-colors" title="切换双语对照 / 纯英文显示">
+          中/EN
+        </button>
+
+        <!-- Human / AI Dual-Track Toggle -->
+        <div class="flex items-center rounded-lg bg-obsidian-800 p-0.5 border border-white/15">
+          <button id="btn-mode-human" onclick="switchTrack('human')" class="px-2.5 py-1 rounded-md text-xs font-mono bg-alchemy-gold text-obsidian-950 font-semibold transition-all">
+            👁️ 传功道场
+          </button>
+          <button id="btn-mode-agent" onclick="switchTrack('agent')" class="px-2.5 py-1 rounded-md text-xs font-mono text-stone hover:text-silicon-cyan transition-all">
+            🤖 Agent 协议
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Global Floating Toast Notification (Zero alert() policy) -->
+  <div id="os-toast" class="hidden fixed bottom-6 right-6 z-50 max-w-sm os-panel rounded-xl px-4 py-3 border-silicon-cyan/60 shadow-2xl flex items-center gap-3 font-mono text-xs text-ivory">
+    <span id="os-toast-icon" class="text-base">⚡</span>
+    <div id="os-toast-msg" class="flex-1 leading-relaxed">指令已执行</div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- TRACK 1: HUMAN CONJURER DOJO (MAIN INTERACTIVE APPLICATION)           -->
+  <!-- ===================================================================== -->
+  <main id="track-human" class="pb-24">
+
+    <!-- HERO SECTION: THE SOVEREIGN GRIMOIRE MANIFESTO -->
+    <section id="top" class="pt-10 pb-12 sm:pt-14 sm:pb-16 border-b border-white/10 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-obsidian-800 border border-alchemy-gold/30 font-mono text-[11px] mb-5">
+          <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+          <span class="text-alchemy-amber">CONJURERLAB.US // VERIFIED 2026 PRODUCTION MAGIC ONLY</span>
+          <span class="text-white/20">|</span>
+          <span class="text-silicon-cyan">ACTIVE SKILL TRANSFER · ZERO BLACK-BOX DEPENDENCY</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+          <div class="lg:col-span-8">
+            <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl text-ivory leading-[1.06] tracking-tight">
+              Don’t Just Rent AI Magic. <br />
+              <span class="italic text-alchemy-gold">Forge It Into Your Own Bones.</span>
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-ivory/90 max-w-3xl leading-relaxed zh-block">
+              欢迎来到 <strong class="text-alchemy-amber">CONJURER OS · 召唤师硅基法典</strong>（<code class="font-mono text-silicon-cyan text-sm">conjurerlab.us</code> 独门法宝）。
+              这里绝不收录过时的玄学咒语或跑不通的伪代码。每一个星图节点都配备了**① 经核实的工业级母版代码**、**② 承重墙解剖图（教你哪3行是核心、哪3个阀门归你调）**、以及**③ 15分钟结印试炼**。
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-3 font-mono text-xs">
+              <a href="#atlas-crucible" class="px-5 py-3 rounded-xl bg-alchemy-gold hover:bg-alchemy-amber text-obsidian-950 font-bold transition-all shadow-lg flex items-center gap-2">
+                <span>🗺️</span>
+                <span>开启 6个月真传星图解剖台</span>
+              </a>
+              <a href="#sovereign-instruments" class="px-4 py-3 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-silicon-cyan/50 text-silicon-cyan transition-all flex items-center gap-2">
+                <span>🔥</span>
+                <span>使用四大传功法宝 (炼金炉 / 破妄镜)</span>
+              </a>
+              <a href="#code-xray-manuals" class="px-4 py-3 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-alchemy-amber/40 text-alchemy-amber transition-all flex items-center gap-2">
+                <span>🔬</span>
+                <span>掌握「代码三阀门」与 Git 时光机</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Hero Card: Mentor Transmission & JSON Backup Controls -->
+          <div class="lg:col-span-4">
+            <div class="os-panel rounded-2xl p-5 border-alchemy-gold/35">
+              <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3 font-mono text-xs">
+                <span class="text-alchemy-amber font-semibold">🧙‍♂️ 导师传功心印 // MENTOR AXIOM</span>
+                <div class="flex items-center gap-2">
+                  <button onclick="exportConjurerState()" class="text-silicon-cyan hover:underline" title="导出你的本地通关存档 JSON">💾 导出存档</button>
+                  <span class="text-white/20">|</span>
+                  <button onclick="triggerImportState()" class="text-emerald hover:underline" title="导入本地 JSON 存档">📂 导入</button>
+                  <input id="import-json-input" type="file" accept=".json" class="hidden" onchange="handleImportFile(event)" />
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-ivory/90 leading-relaxed zh-block">
+                「怎样才算把我的法力真正传给你？不是我替你写完 1000 行代码让你当个不敢乱动的旁观者，而是我把千行代码拆成**『三个清晰阀门』**，让你敢亲手改参数、敢用 Git 一秒回滚、敢用破妄镜冷酷证伪。」
+              </p>
+              <div class="mt-4 pt-3 border-t border-white/10 grid grid-cols-3 gap-2 font-mono text-center">
+                <div class="p-2 rounded-lg bg-obsidian-950 border border-white/5">
+                  <div class="text-[10px] text-stone">已点亮星域</div>
+                  <div id="hero-stat-realms" class="text-base font-bold text-emerald mt-0.5">1 / 6</div>
+                </div>
+                <div class="p-2 rounded-lg bg-obsidian-950 border border-white/5">
+                  <div class="text-[10px] text-stone">已完成试炼</div>
+                  <div id="hero-stat-checks" class="text-base font-bold text-silicon-cyan mt-0.5">3 / 18</div>
+                </div>
+                <div class="p-2 rounded-lg bg-obsidian-950 border border-white/5">
+                  <div class="text-[10px] text-stone">一鱼四吃杠杆</div>
+                  <div class="text-base font-bold text-alchemy-amber mt-0.5">4.0x</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 1: THE 6-MONTH SOVEREIGN CONJURER ATLAS & X-RAY INSPECTOR     -->
+    <!-- ===================================================================== -->
+    <section id="atlas-crucible" class="py-14 sm:py-18 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header + View Switcher -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8">
+          <div>
+            <div class="font-mono text-xs text-silicon-cyan uppercase tracking-widest mb-1.5">
+              ◈ CORE SECTION 01 // THE 6-MONTH SPATIAL ATLAS & SPELL ANATOMY INSPECTOR
+            </div>
+            <h2 class="font-serif text-3xl sm:text-5xl text-ivory">
+              The 6-Month Conjurer Atlas · <span class="italic text-alchemy-gold">六个月真传星图与解剖台</span>
+            </h2>
+            <p class="mt-2 text-sm text-stone max-w-2xl zh-block">
+              点击左侧星图上的任意领地（M01–M06），右侧**「传功解剖台」**将同步展开该阶段的**① 真法术母版（可直接复制）**、**② 承重墙解剖（哪3行是核心 + 哪3个阀门归你调）**、以及**③ 结印试炼与本地存档**。
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+            <div class="flex items-center rounded-xl bg-obsidian-800 p-1 border border-white/15">
+              <button id="btn-view-map" onclick="setAtlasViewMode('map')" class="px-3 py-1.5 rounded-lg bg-alchemy-gold text-obsidian-950 font-semibold transition-all">
+                🗺️ 星图拓扑 (Spatial Atlas)
+              </button>
+              <button id="btn-view-cards" onclick="setAtlasViewMode('cards')" class="px-3 py-1.5 rounded-lg text-stone hover:text-ivory transition-all">
+                📖 法典折页 (Grimoire Cards)
+              </button>
+            </div>
+            <button onclick="resetAllProgress()" class="px-2.5 py-2 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-white/10 text-stone hover:text-crimson text-[11px]" title="重置本地练习打卡进度">
+              ↺ 重置进度
+            </button>
+          </div>
+        </div>
+
+        <!-- VIEW MODE 1: INTERACTIVE SVG ATLAS + RIGHT-HAND 3-TAB INSPECTOR -->
+        <div id="atlas-view-map" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+          <!-- Left 6 Cols: Interactive SVG Spatial Star-Map -->
+          <div class="lg:col-span-6 os-panel rounded-2xl flex flex-col justify-between overflow-hidden min-h-[480px] sm:min-h-[580px]">
+            <!-- Top Map Layer Toggles Bar -->
+            <div class="px-4 py-3 bg-obsidian-950/90 border-b border-white/10 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
+              <div class="flex items-center gap-2">
+                <span class="text-alchemy-gold font-semibold">ATLAS // M01 ➔ M06</span>
+                <span class="text-white/20">|</span>
+                <span id="atlas-cursor-latlon" class="text-silicon-cyan">SECTOR: 34.20°N, 118.20°W</span>
+              </div>
+              <!-- Layer Checkboxes -->
+              <div class="flex items-center gap-2.5 text-[10px]">
+                <label class="flex items-center gap-1 cursor-pointer text-stone hover:text-ivory">
+                  <input type="checkbox" checked onchange="toggleMapLayer('contours', this.checked)" class="accent-amber-400" />
+                  <span>Contours</span>
+                </label>
+                <label class="flex items-center gap-1 cursor-pointer text-stone hover:text-ivory">
+                  <input type="checkbox" checked onchange="toggleMapLayer('links', this.checked)" class="accent-cyan-400" />
+                  <span>Neural Links</span>
+                </label>
+                <label class="flex items-center gap-1 cursor-pointer text-stone hover:text-ivory">
+                  <input type="checkbox" checked onchange="toggleMapLayer('glow', this.checked)" class="accent-emerald-400" />
+                  <span>Glow</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Interactive SVG Canvas (Supports Mouse Drag, Wheel Zoom & Touch) -->
+            <div id="atlas-canvas-wrap" class="relative flex-1 w-full bg-obsidian-950/75 overflow-hidden cursor-grab active:cursor-grabbing select-none touch-none">
+              <svg id="atlas-svg" viewBox="0 0 760 500" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="glowEmerald" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.42"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.42"/>
+                    <stop offset="100%" stop-color="#00F0FF" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#FFB800" stop-opacity="0.38"/>
+                    <stop offset="100%" stop-color="#FFB800" stop-opacity="0"/>
+                  </radialGradient>
+                  <pattern id="minorGrid" width="38" height="38" patternUnits="userSpaceOnUse">
+                    <path d="M 38 0 L 0 0 0 38" fill="none" stroke="rgba(212,163,89,0.08)" stroke-width="1"/>
+                  </pattern>
+                </defs>
+
+                <g id="atlas-pan-zoom-group" transform="translate(0,0) scale(1)">
+                  <rect width="760" height="500" fill="url(#minorGrid)"/>
+                  <rect x="18" y="18" width="724" height="464" fill="none" stroke="rgba(212,163,89,0.22)" stroke-width="1" stroke-dasharray="4 4"/>
+
+                  <!-- Layer 1: Topographic Contours & Astrolabe Rings -->
+                  <g id="map-layer-contours" opacity="0.85">
+                    <ellipse cx="165" cy="375" rx="115" ry="64" fill="none" stroke="rgba(212,163,89,0.14)" stroke-width="1"/>
+                    <ellipse cx="390" cy="255" rx="170" ry="92" fill="none" stroke="rgba(0,240,255,0.12)" stroke-width="1" stroke-dasharray="5 4"/>
+                    <circle cx="640" cy="115" r="80" fill="none" stroke="rgba(255,184,0,0.22)" stroke-width="1" stroke-dasharray="2 3"/>
+                    <circle cx="640" cy="115" r="52" fill="none" stroke="rgba(255,184,0,0.28)" stroke-width="1"/>
+                    <text x="36" y="46" fill="rgba(212,163,89,0.45)" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5">QUADRANT I // CONTEXT & SINGLE-FILE FORGE</text>
+                    <text x="445" y="46" fill="rgba(0,240,255,0.48)" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5">CITADEL // SOVEREIGN OaaS ENGINE</text>
+                  </g>
+
+                  <!-- Layer 2: Neural Ascension Trajectory -->
+                  <g id="map-layer-links">
+                    <path d="M 110 385 C 165 385, 190 270, 245 270 C 305 270, 325 345, 385 335 C 445 325, 450 190, 505 185 C 555 180, 570 245, 610 220 C 635 200, 635 145, 640 115"
+                          fill="none" stroke="rgba(212,163,89,0.3)" stroke-width="3" />
+                    <path d="M 110 385 C 165 385, 190 270, 245 270 C 305 270, 325 345, 385 335 C 445 325, 450 190, 505 185 C 555 180, 570 245, 610 220 C 635 200, 635 145, 640 115"
+                          fill="none" stroke="#00F0FF" stroke-width="2" class="svg-neural-flow" />
+                  </g>
+
+                  <!-- Layer 3: Dynamic Realm Beacons -->
+                  <g id="atlas-nodes-layer"></g>
+                </g>
+              </svg>
+
+              <!-- Map Overlay Zoom Controls -->
+              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                <div class="px-2.5 py-1 rounded bg-obsidian-950/90 border border-white/10 text-[11px] font-mono text-stone pointer-events-auto">
+                  💡 拖拽漫游 · 点击 M01–M06 展开右侧传功解剖台
+                </div>
+                <div class="flex items-center gap-1.5 pointer-events-auto font-mono">
+                  <button onclick="zoomMap(1.18)" class="w-7 h-7 rounded bg-obsidian-900 border border-white/15 text-ivory hover:border-silicon-cyan text-xs">+</button>
+                  <button onclick="zoomMap(0.84)" class="w-7 h-7 rounded bg-obsidian-900 border border-white/15 text-ivory hover:border-silicon-cyan text-xs">−</button>
+                  <button onclick="resetMapTransform()" class="px-2 h-7 rounded bg-obsidian-900 border border-alchemy-gold/40 text-alchemy-gold text-[11px]">⌖ 归位</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Quick Month Selector Bar -->
+            <div id="atlas-month-pills" class="px-3 py-2.5 bg-obsidian-950 border-t border-white/10 flex items-center gap-1.5 overflow-x-auto font-mono text-xs">
+            </div>
+          </div>
+
+          <!-- Right 6 Cols: Spell X-Ray & Anatomy Inspector (传功解剖台) -->
+          <div class="lg:col-span-6 os-panel rounded-2xl p-5 sm:p-6 border-silicon-cyan/35 flex flex-col justify-between">
+            <div>
+              <!-- Header Status -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/10">
+                <div class="flex items-center gap-2">
+                  <span id="console-id-badge" class="px-2.5 py-1 rounded bg-alchemy-gold text-obsidian-950 font-mono text-xs font-bold">M01</span>
+                  <span id="console-coord" class="font-mono text-xs text-stone">SECTOR 01</span>
+                </div>
+                <span id="console-lock-badge" class="px-2.5 py-0.5 rounded-full font-mono text-[11px]"></span>
+              </div>
+
+              <!-- Realm Title -->
+              <div class="mt-3">
+                <h3 id="console-title-zh" class="font-serif text-2xl sm:text-3xl text-ivory"></h3>
+                <p id="console-title-en" class="font-mono text-xs text-alchemy-gold mt-0.5"></p>
+              </div>
+
+              <!-- 3 Sub-Tabs for Deep Skill Transfer -->
+              <div class="mt-4 grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-obsidian-950 border border-white/10 font-mono text-xs">
+                <button id="tab-btn-blueprint" onclick="switchConsoleTab('blueprint')" class="py-2 px-2 rounded-lg bg-obsidian-800 text-silicon-cyan font-semibold border border-silicon-cyan/40 transition-all">
+                  📜 1. 真法术母版
+                </button>
+                <button id="tab-btn-anatomy" onclick="switchConsoleTab('anatomy')" class="py-2 px-2 rounded-lg text-stone hover:text-ivory transition-all">
+                  🔬 2. 承重墙解剖
+                </button>
+                <button id="tab-btn-crucible" onclick="switchConsoleTab('crucible')" class="py-2 px-2 rounded-lg text-stone hover:text-ivory transition-all">
+                  ⚔️ 3. 结印试炼台
+                </button>
+              </div>
+
+              <!-- SUB-TAB 1: VERIFIED SPELL BLUEPRINT & PRIMARY SOURCES -->
+              <div id="tab-panel-blueprint" class="mt-4 space-y-4">
+                <p id="console-lore-desc" class="text-xs sm:text-sm text-ivory/90 leading-relaxed bg-obsidian-950/80 p-3.5 rounded-xl border border-white/10"></p>
+
+                <!-- Copyable Master Blueprint Code Box -->
+                <div class="p-3.5 rounded-xl bg-obsidian-950 border border-silicon-cyan/35">
+                  <div class="flex items-center justify-between text-[11px] font-mono text-silicon-cyan mb-2">
+                    <span id="console-blueprint-title">📜 VERIFIED PRODUCTION SPELL // 工业级真法术母版</span>
+                    <button onclick="copyCurrentRealmBlueprint()" class="px-2.5 py-1 rounded bg-silicon-cyan text-obsidian-950 font-bold hover:opacity-90 transition-opacity">
+                      📋 一键复制母版
+                    </button>
+                  </div>
+                  <pre id="console-blueprint-code" class="text-[11px] font-mono text-ivory/90 overflow-x-auto whitespace-pre-wrap leading-relaxed max-h-48 select-all"></pre>
+                </div>
+
+                <!-- Primary Verified Sources -->
+                <div>
+                  <div class="text-[11px] font-mono text-alchemy-amber uppercase mb-2">📚 严选一手黄金水源 (PRIMARY SOURCES — 只喝源头活水)</div>
+                  <div id="console-sources-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+                </div>
+              </div>
+
+              <!-- SUB-TAB 2: X-RAY ANATOMY (LOAD-BEARING WALLS + TUNABLE KNOBS) -->
+              <div id="tab-panel-anatomy" class="hidden mt-4 space-y-4">
+                <div class="p-3.5 rounded-xl bg-obsidian-950 border border-alchemy-amber/40">
+                  <div class="font-mono text-xs text-alchemy-amber font-bold mb-2">
+                    🏛️ 核心承重墙 (THE 3 LOAD-BEARING WALLS — 为什么这段法术能跑通？)
+                  </div>
+                  <ul id="console-walls-list" class="space-y-2 text-xs text-ivory/90 leading-relaxed"></ul>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-950 border border-silicon-cyan/40">
+                  <div class="font-mono text-xs text-silicon-cyan font-bold mb-2">
+                    🎛️ 归你掌控的三个阀门 (THE 3 TUNABLE KNOBS — 亲手改这3处就能变成你的新产品)
+                  </div>
+                  <ul id="console-knobs-list" class="space-y-2 text-xs text-ivory/90 leading-relaxed font-mono"></ul>
+                </div>
+
+                <div class="p-3 rounded-xl bg-emerald/10 border border-emerald/30 text-xs text-ivory/90">
+                  <strong class="text-emerald font-mono">🗡️ 15分钟破黑盒改刀任务：</strong>
+                  <span id="console-drill-task" class="ml-1"></span>
+                </div>
+              </div>
+
+              <!-- SUB-TAB 3: CRUCIBLE VERIFICATION & LOCALSTORAGE TRACKER -->
+              <div id="tab-panel-crucible" class="hidden mt-4 space-y-4">
+                <div class="p-3 rounded-xl bg-emerald/10 border border-emerald/30 text-xs text-ivory/90 leading-relaxed">
+                  <strong class="text-emerald font-mono">⚡ 真传验道铁律：</strong> 亲手完成以下 3 项检验并打勾，即可点亮本领地星辰、提升召唤师境界（自动保存在你的浏览器 `localStorage` 中）。
+                </div>
+
+                <!-- 3 Falsifiable Checkboxes -->
+                <div id="console-gate-checks" class="space-y-2"></div>
+
+                <!-- Persistent Artifact URL & Field Notes -->
+                <div class="space-y-2.5 pt-1">
+                  <div>
+                    <label class="block font-mono text-[11px] text-stone mb-1">🔗 你的毕业造物链接 / GitHub Repo (Proof-of-Work URL):</label>
+                    <input id="gate-artifact-url" oninput="saveCurrentGateInputs()" type="text" placeholder="https://conjurer.us/... or github.com/ConjurerLab/..." class="w-full px-3 py-2 rounded-lg bg-obsidian-950 border border-white/15 text-xs font-mono text-ivory focus:border-silicon-cyan focus:outline-none"/>
+                  </div>
+                  <div>
+                    <label class="block font-mono text-[11px] text-stone mb-1">📓 召唤师实战心法手记 (记录你踩过的坑或顿悟，自动本地持久化):</label>
+                    <textarea id="gate-field-notes" oninput="saveCurrentGateInputs()" rows="2" placeholder="写下你的实战改刀心得..." class="w-full px-3 py-2 rounded-lg bg-obsidian-950 border border-white/15 text-xs font-mono text-ivory focus:border-silicon-cyan focus:outline-none"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Console Footer Action Bar -->
+            <div class="mt-5 pt-3.5 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+              <div class="font-mono text-xs text-stone">
+                毕业造物: <strong id="console-deliverable-name" class="text-ivory"></strong>
+              </div>
+              <button id="btn-verify-territory" onclick="toggleTerritoryMastery()" class="px-4 py-2 rounded-xl font-mono text-xs font-bold transition-all">
+                ⚡ 结印点亮此领地
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- VIEW MODE 2: ALL 6 GRIMOIRE CARDS FOLD VIEW -->
+        <div id="atlas-view-cards" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 2: THE 4 SOVEREIGN INSTRUMENTS (四大传功法宝实操台)            -->
+    <!-- ===================================================================== -->
+    <section id="sovereign-instruments" class="py-14 sm:py-18 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+        <!-- INSTRUMENT 1: LIVE XML SPELL FORGING SIMULATOR -->
+        <div>
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
+            <div>
+              <div class="font-mono text-xs text-alchemy-amber uppercase tracking-widest mb-1">
+                🧪 INSTRUMENT 01 // LIVE XML SPELL FORGING SIMULATOR
+              </div>
+              <h2 class="font-serif text-3xl sm:text-5xl text-ivory">
+                The Live Spell Forge · <span class="italic text-silicon-cyan">交互式咒语炼金炉</span>
+              </h2>
+              <p class="mt-1.5 text-sm text-stone max-w-2xl zh-block">
+                把你脑子里一团乱麻的“大白话想法”输进去（或直接点选 4 大高频预设），勾选下方**三大护法印记**，立即编译成工业级 XML 契约咒语，并为你标注每一层的架构原理！
+              </p>
+            </div>
+
+            <!-- 4 Preset Pills -->
+            <div class="flex flex-wrap gap-2 font-mono text-xs">
+              <button onclick="loadSpellPreset('singleFile')" class="px-3 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-silicon-cyan/40 text-silicon-cyan">
+                🏛️ 1. 单文件交互应用
+              </button>
+              <button onclick="loadSpellPreset('pythonFactory')" class="px-3 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-alchemy-amber/40 text-alchemy-amber">
+                🐍 2. Python 数据工厂
+              </button>
+              <button onclick="loadSpellPreset('edTechGame')" class="px-3 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-emerald/40 text-emerald">
+                🎮 3. 双语教育游戏关卡
+              </button>
+              <button onclick="loadSpellPreset('xViral')" class="px-3 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-crimson/40 text-crimson">
+                🌍 4. 跨洋 X 爆款长文
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left 6 Cols: Raw Idea + Slots + 3 Power Switches -->
+            <div class="lg:col-span-6 os-panel rounded-2xl p-6 space-y-4">
+              <div class="flex items-center justify-between border-b border-white/10 pb-2.5 font-mono text-xs">
+                <span class="text-alchemy-gold font-semibold">⚙️ STEP 1: 输入原始意图或调整参数阀门</span>
+                <span id="compiler-preset-label" class="text-silicon-cyan">当前母版: 单文件交互应用</span>
+              </div>
+
+              <!-- Quick Raw Idea Transformer -->
+              <div class="p-3 rounded-xl bg-obsidian-950 border border-alchemy-gold/30">
+                <label class="block font-mono text-[11px] text-alchemy-amber mb-1.5">💡 快速注入你的大白话想法 (输入后自动装填进下方结构槽):</label>
+                <div class="flex gap-2">
+                  <input id="raw-idea-input" type="text" placeholder="例如：帮我做一个带时间金币奖励的SAT历史词汇闯关单页应用..." class="flex-1 px-3 py-1.5 rounded-lg bg-obsidian-900 border border-white/15 text-xs font-mono text-ivory focus:border-silicon-cyan focus:outline-none" />
+                  <button onclick="injectRawIdeaIntoSlots()" class="px-3 py-1.5 rounded-lg bg-alchemy-gold text-obsidian-950 font-mono text-xs font-bold whitespace-nowrap">
+                    ⚡ 炼化装填
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-mono text-xs text-ivory mb-1">&lt;role_and_axiom&gt; 召唤灵体身份与第一性公理:</label>
+                <input id="spell-role" oninput="compileLiveSpell()" type="text" class="w-full px-3 py-2 rounded-lg bg-obsidian-950 border border-white/15 text-xs font-mono text-ivory focus:border-silicon-cyan focus:outline-none"/>
+              </div>
+
+              <div>
+                <label class="block font-mono text-xs text-ivory mb-1">&lt;mission_and_context&gt; 核心造物任务与背景输入:</label>
+                <textarea id="spell-mission" oninput="compileLiveSpell()" rows="2" class="w-full px-3 py-2 rounded-lg bg-obsidian-950 border border-white/15 text-xs font-mono text-ivory focus:border-silicon-cyan focus:outline-none"></textarea>
+              </div>
+
+              <div>
+                <label class="block font-mono text-xs text-ivory mb-1">&lt;negative_boundaries&gt; 负面禁令 (严禁输出的平庸废话与雷区):</label>
+                <input id="spell-constraints" oninput="compileLiveSpell()" type="text" class="w-full px-3 py-2 rounded-lg bg-obsidian-950 border border-white/15 text-xs font-mono text-ivory focus:border-silicon-cyan focus:outline-none"/>
+              </div>
+
+              <div>
+                <label class="block font-mono text-xs text-ivory mb-1">&lt;output_contract&gt; 交付物结构契约 (JSON Schema / 单文件标准):</label>
+                <input id="spell-contract" oninput="compileLiveSpell()" type="text" class="w-full px-3 py-2 rounded-lg bg-obsidian-950 border border-white/15 text-xs font-mono text-ivory focus:border-silicon-cyan focus:outline-none"/>
+              </div>
+
+              <!-- 3 Power Switches -->
+              <div class="pt-2 border-t border-white/10 space-y-2">
+                <div class="font-mono text-xs text-silicon-cyan">⚡ STEP 2: 挂载真传护法插件 (POWER INJECTIONS)</div>
+
+                <label class="flex items-start gap-2.5 p-2.5 rounded-xl bg-obsidian-950 border border-white/10 cursor-pointer hover:border-crimson/50 transition-colors">
+                  <input id="switch-antisycophancy" type="checkbox" checked onchange="compileLiveSpell()" class="mt-0.5 accent-rose-500"/>
+                  <div class="text-xs">
+                    <div class="font-mono font-semibold text-crimson">🛡️ 挂载「破妄镜」反谄媚护盾 (Popperian Anti-Sycophancy Shield)</div>
+                    <div class="text-stone text-[11px] mt-0.5">严禁 AI 顺情说好话！强制它先指出方案中 3 个可能导致破产的致命盲点。</div>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-2.5 p-2.5 rounded-xl bg-obsidian-950 border border-white/10 cursor-pointer hover:border-silicon-cyan/50 transition-colors">
+                  <input id="switch-valves" type="checkbox" checked onchange="compileLiveSpell()" class="mt-0.5 accent-cyan-400"/>
+                  <div class="text-xs">
+                    <div class="font-mono font-semibold text-silicon-cyan">🔬 挂载「代码三阀门自白」协议 (3-Valve Load-Bearing Anatomy)</div>
+                    <div class="text-stone text-[11px] mt-0.5">强制 AI 交付代码时必须指明【数据阀门】【渲染阀门】【存档阀门】行号，把法力传给你。</div>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-2.5 p-2.5 rounded-xl bg-obsidian-950 border border-white/10 cursor-pointer hover:border-alchemy-amber/50 transition-colors">
+                  <input id="switch-eval" type="checkbox" checked onchange="compileLiveSpell()" class="mt-0.5 accent-amber-400"/>
+                  <div class="text-xs">
+                    <div class="font-mono font-semibold text-alchemy-amber">🧪 挂载「三味真火边界自测」 (3-Case Golden Eval Loop)</div>
+                    <div class="text-stone text-[11px] mt-0.5">强制 AI 交付前用【1常规 + 1空值极端 + 1恶意越界】样本自动验算。</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Right 6 Cols: Live Compiled XML Output + Why It Works -->
+            <div class="lg:col-span-6 os-panel rounded-2xl p-6 border-silicon-cyan/35 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3 font-mono text-xs">
+                  <span class="text-silicon-cyan font-semibold">📜 COMPILED XML SPELL // 实时编译工业级真法术</span>
+                  <span class="text-emerald">✓ HIGH-SIGNAL STRUCTURE</span>
+                </div>
+                <pre id="compiled-spell-output" class="p-4 rounded-xl bg-obsidian-950 border border-white/10 font-mono text-xs text-ivory/90 overflow-x-auto whitespace-pre-wrap leading-relaxed max-h-[380px] select-all"></pre>
+
+                <div class="mt-3 p-3 rounded-xl bg-obsidian-950/90 border border-alchemy-gold/25 text-[11px] font-mono text-stone leading-relaxed">
+                  <strong class="text-alchemy-gold">🔍 为什么这套 XML 咒语比普通聊天强 10 倍？</strong><br/>
+                  大模型通过 Attention 矩阵定位边界。使用闭合标签（如 <code class="text-ivory">&lt;negative_boundaries&gt;</code>）能防止指令串味，而底部挂载的「三阀门自白协议」会逼迫 AI 在给你干活的同时当你的私人架构教练！
+                </div>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+                <span class="text-xs font-mono text-stone">可直接粘贴至 Claude / Gemini / Cursor Composer</span>
+                <button onclick="copyCompiledSpell()" class="px-5 py-2.5 rounded-xl bg-silicon-cyan hover:opacity-90 text-obsidian-950 font-mono text-xs font-bold transition-all shadow-lg">
+                  📋 一键复制编译后的真法术
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INSTRUMENT 2: ANTI-SYCOPHANCY RED-TEAM AUDITOR (破妄镜) -->
+        <div class="os-panel rounded-2xl p-6 sm:p-8 border-crimson/40">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-3">
+              <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-crimson/15 text-crimson font-mono text-xs font-semibold">
+                <span>🛡️ INSTRUMENT 02 // POPPERIAN FALSIFICATION SHIELD</span>
+              </div>
+              <h3 class="font-serif text-3xl text-ivory">
+                破妄镜 · AI 反谄媚冷酷审计器
+              </h3>
+              <p class="text-xs sm:text-sm text-stone leading-relaxed">
+                大模型最大的毒性是**“顺着你的偏见夸你（Sycophancy）”**。把你正在写的文章草稿、商业点子或架构方案粘进右侧框里，点击生成**「破妄审计载荷」**——它会强制 AI 化身波普尔与塔勒布，专挑你方案里的破产风险与自嗨盲区！
+              </p>
+            </div>
+
+            <div class="lg:col-span-7 space-y-3">
+              <textarea id="redteam-draft-input" rows="3" placeholder="在这里粘贴你的产品想法、文章大纲或商业方案（若留空则直接复制通用破妄镜母版）..." class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian-950 border border-white/15 text-xs font-mono text-ivory focus:border-crimson focus:outline-none"></textarea>
+              <div class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
+                <span class="text-stone text-[11px]">融合 David Deutsch 难以篡改的解释 + Taleb 反脆弱破产审计</span>
+                <button onclick="copyRedTeamAuditPayload()" class="px-5 py-2.5 rounded-xl bg-crimson hover:opacity-90 text-ivory font-bold transition-all shadow-lg">
+                  🗡️ 封装并复制「破妄镜冷酷审计咒」
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INSTRUMENT 3: 2026 SPIRIT ROUTING COMPASS (万灵调度罗盘) -->
+        <div>
+          <div class="mb-6">
+            <div class="font-mono text-xs text-silicon-cyan uppercase tracking-widest mb-1">
+              🧭 INSTRUMENT 03 // THE 2026 MULTI-SPIRIT DISPATCH COMPASS
+            </div>
+            <h2 class="font-serif text-3xl sm:text-5xl text-ivory">
+              Spirit Routing Matrix · <span class="italic text-alchemy-gold">万灵调度罗盘（点击灵体查看防串味法则）</span>
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="spirit-compass-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 3: CODE X-RAY, 4 SECRET MANUALS & TRUTH VS HYPE MATRIX        -->
+    <!-- ===================================================================== -->
+    <section id="code-xray-manuals" class="py-14 sm:py-18">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-8">
+          <div class="font-mono text-xs text-emerald uppercase tracking-widest mb-1.5">
+            🔬 CORE SECTION 03 // BLACK-BOX DECONSTRUCTOR & VERIFIED REALITY MATRIX
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl text-ivory">
+            The Code X-Ray & Secret Manuals · <span class="italic text-alchemy-gold">法阵透视眼与四大看家基本功</span>
+          </h2>
+          <p class="mt-2 text-sm text-stone max-w-3xl zh-block">
+            为什么有时候用 AI 写代码会觉得心虚？因为没人教过你这**四门看家真传**：如何 3 分钟看穿千行代码的**「三阀门」**、如何用 **Git 时光机**彻底告别 `V1~V29` 备份恐惧、如何用 **Mac F12 窥视镜**一秒抓虫、以及 **2026 真伪法术照妖镜**。
+          </p>
+        </div>
+
+        <!-- 4 Manual Selector Tabs -->
+        <div class="flex flex-wrap gap-2 mb-6 font-mono text-xs">
+          <button id="manual-tab-valves" onclick="switchManualTab('valves')" class="px-4 py-2.5 rounded-xl bg-alchemy-gold text-obsidian-950 font-bold transition-all">
+            🔬 1. 单文件「三阀门」透视眼
+          </button>
+          <button id="manual-tab-git" onclick="switchManualTab('git')" class="px-4 py-2.5 rounded-xl bg-obsidian-800 text-ivory hover:border-silicon-cyan border border-white/10 transition-all">
+            ⏳ 2. Git 时光回溯四式 (告别V29混乱)
+          </button>
+          <button id="manual-tab-devtools" onclick="switchManualTab('devtools')" class="px-4 py-2.5 rounded-xl bg-obsidian-800 text-ivory hover:border-silicon-cyan border border-white/10 transition-all">
+            🕵️‍♀️ 3. Mac F12 浏览器窥视镜
+          </button>
+          <button id="manual-tab-truth" onclick="switchManualTab('truth')" class="px-4 py-2.5 rounded-xl bg-obsidian-800 text-ivory hover:border-silicon-cyan border border-white/10 transition-all">
+            🛡️ 4. 2026 真伪法术照妖镜
+          </button>
+        </div>
+
+        <!-- MANUAL PANEL 1: THE 3-VALVE CODE X-RAY -->
+        <div id="manual-panel-valves" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-5 os-panel rounded-2xl p-6 space-y-4">
+            <h3 class="font-serif text-2xl text-ivory">看穿一切网页应用的「三阀门心智模型」</h3>
+            <p class="text-xs sm:text-sm text-stone leading-relaxed">
+              不管 AI 给你写出的单文件 HTML 有 300 行还是 3000 行，它的骨架永远像你们家的建筑水路一样，只有 **3 个核心阀门**。点击下方三个按钮，右侧代码会自动高亮对应区域：
+            </p>
+
+            <div class="space-y-3 font-mono text-xs">
+              <button onclick="highlightValve(1)" id="valve-btn-1" class="w-full text-left p-3.5 rounded-xl bg-obsidian-950 border-2 border-alchemy-amber transition-all">
+                <div class="text-alchemy-amber font-bold">🟡 阀门一：STATE 数据水源 (你平时 80% 只需要改这里！)</div>
+                <p class="text-stone text-[11px] mt-1 font-sans">所有标题、文案、链接、卡牌数据都存放在顶部的数组/对象里。改文字、加关卡，只改这里，绝不碰下面的逻辑代码！</p>
+              </button>
+
+              <button onclick="highlightValve(2)" id="valve-btn-2" class="w-full text-left p-3.5 rounded-xl bg-obsidian-950 border border-white/10 hover:border-silicon-cyan transition-all">
+                <div class="text-silicon-cyan font-bold">🔵 阀门二：RENDER 画面模具 (决定长相与颜色)</div>
+                <p class="text-stone text-[11px] mt-1 font-sans">用 <code class="text-ivory">.map().join('')</code> 把上面的数据浇铸成 HTML 卡片。想改圆角、字号、边框颜色，就在这里的反引号模板里改 Tailwind 类名。</p>
+              </button>
+
+              <button onclick="highlightValve(3)" id="valve-btn-3" class="w-full text-left p-3.5 rounded-xl bg-obsidian-950 border border-white/10 hover:border-emerald transition-all">
+                <div class="text-emerald font-bold">🟢 阀门三：MUTATE & PERSIST 机关与本地存档</div>
+                <p class="text-stone text-[11px] mt-1 font-sans">当用户点击按钮时，修改数据水源 ➔ 存入 <code class="text-ivory">localStorage</code> ➔ 重新呼叫阀门二刷新画面。这就是全天下所有交互应用的心跳闭环！</p>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 os-panel rounded-2xl p-6 flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3 font-mono text-xs">
+              <span id="xray-status-title" class="text-alchemy-amber font-semibold">🔬 正在透视：阀门一 (STATE 数据水源)</span>
+              <button onclick="copyXrayTemplate()" class="px-3 py-1 rounded bg-obsidian-800 hover:bg-obsidian-700 border border-white/15 text-ivory">📋 复制30行黄金骨架</button>
+            </div>
+            <div id="xray-code-display" class="p-4 rounded-xl bg-obsidian-950 border border-white/10 font-mono text-xs leading-relaxed overflow-x-auto space-y-2">
+            </div>
+          </div>
+        </div>
+
+        <!-- MANUAL PANEL 2: GIT TIME-MACHINE 4 SPELLS -->
+        <div id="manual-panel-git" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="os-panel rounded-2xl p-6 border-alchemy-gold/40">
+            <div class="font-mono text-xs text-alchemy-amber mb-2">SPELL 01 & 02 // 铸造金身与平行宇宙</div>
+            <h3 class="font-serif text-2xl text-ivory">为什么你不再需要 `V28_final_打死不改版.html`？</h3>
+            <p class="text-xs text-stone mt-2 leading-relaxed">
+              每次让 AI 大改代码前，在 VS Code / Cursor 终端（快捷键 <code class="text-ivory font-mono">Ctrl + `</code>）敲下这两行咒语，你就拥有了绝对免死金牌：
+            </p>
+            <div class="mt-4 space-y-3 font-mono text-xs">
+              <div class="p-3 rounded-xl bg-obsidian-950 border border-white/10">
+                <div class="flex justify-between text-emerald mb-1">
+                  <span>① 给当前完美版本打上不灭金印 (Tag)</span>
+                  <button onclick="copyRawText('git add . && git commit -m &quot;Golden state&quot; && git tag v1.0-gold')" class="underline">复制</button>
+                </div>
+                <code class="text-ivory">git add . && git commit -m "Golden state" && git tag v1.0-gold</code>
+              </div>
+              <div class="p-3 rounded-xl bg-obsidian-950 border border-white/10">
+                <div class="flex justify-between text-silicon-cyan mb-1">
+                  <span>② 开启平行实验分支 (随便折腾不伤主站)</span>
+                  <button onclick="copyRawText('git checkout -b exp-new-feature')" class="underline">复制</button>
+                </div>
+                <code class="text-ivory">git checkout -b exp-new-feature</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="os-panel rounded-2xl p-6 border-silicon-cyan/40">
+            <div class="font-mono text-xs text-silicon-cyan mb-2">SPELL 03 & 04 // 一秒时光倒流与合入主城</div>
+            <h3 class="font-serif text-2xl text-ivory">改坏了怎么一秒复原？改成了怎么上线？</h3>
+            <p class="text-xs text-stone mt-2 leading-relaxed">
+              哪怕 AI 把你的代码改得面目全非、一片空白，只要敲下第三式，1 秒钟内整个页面立刻满血复活：
+            </p>
+            <div class="mt-4 space-y-3 font-mono text-xs">
+              <div class="p-3 rounded-xl bg-obsidian-950 border border-crimson/40">
+                <div class="flex justify-between text-crimson mb-1">
+                  <span>③ 时光倒流诀 (粉碎刚才所有报错修改，回到最后一次存档)</span>
+                  <button onclick="copyRawText('git checkout .')" class="underline">复制</button>
+                </div>
+                <code class="text-ivory">git checkout .</code>
+              </div>
+              <div class="p-3 rounded-xl bg-obsidian-950 border border-emerald/40">
+                <div class="flex justify-between text-emerald mb-1">
+                  <span>④ 实验大成，合入主线并推送到 GitHub/Vercel</span>
+                  <button onclick="copyRawText('git checkout main && git merge exp-new-feature && git push')" class="underline">复制</button>
+                </div>
+                <code class="text-ivory">git checkout main && git merge exp-new-feature && git push</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MANUAL PANEL 3: BROWSER F12 DEVTOOLS -->
+        <div id="manual-panel-devtools" class="hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="os-panel rounded-2xl p-6">
+            <div class="font-mono text-xs text-crimson mb-2">SKILL 01 // CONSOLE 抓鬼镜</div>
+            <h3 class="font-serif text-2xl text-ivory">按钮点不动？一秒定位真凶</h3>
+            <p class="text-xs text-stone mt-2 leading-relaxed">
+              在 Mac 浏览器按下 <strong class="text-ivory font-mono">Cmd + Option + I</strong>，切换到 <strong class="text-crimson font-mono">Console</strong> 标签。如果看到红字报错（例如 <code class="font-mono">Uncaught ReferenceError at index.html:412</code>），直接把这一行红字连带行号复制丢给 AI，AI 10 秒钟就能修好，再也不用瞎猜！
+            </p>
+          </div>
+          <div class="os-panel rounded-2xl p-6">
+            <div class="font-mono text-xs text-silicon-cyan mb-2">SKILL 02 // APPLICATION 记忆库</div>
+            <h3 class="font-serif text-2xl text-ivory">亲眼透视 LocalStorage 存档</h3>
+            <p class="text-xs text-stone mt-2 leading-relaxed">
+              打开 <strong class="text-ivory font-mono">Cmd + Option + I</strong> ➔ 顶部找到 <strong class="text-silicon-cyan font-mono">Application (应用)</strong> ➔ 左侧点开 <strong class="font-mono text-ivory">Local Storage</strong>。你现在就能在里面看到本网站实时保存的 <code class="text-alchemy-amber font-mono">conjurer_os_v1_state</code> JSON 数据！双击就能直接改数值。
+            </p>
+          </div>
+          <div class="os-panel rounded-2xl p-6">
+            <div class="font-mono text-xs text-alchemy-amber mb-2">SKILL 03 // ELEMENTS 审美偷师</div>
+            <h3 class="font-serif text-2xl text-ivory">拆解任何顶级网站的配色与字体</h3>
+            <p class="text-xs text-stone mt-2 leading-relaxed">
+              看到别人网站上有超高级的微水泥卡片或丝滑动画？按 <strong class="text-ivory font-mono">Cmd + Shift + C</strong> 点击那个元素，右侧 Styles 面板会直接暴露出它的字体名、<code class="font-mono text-ivory">backdrop-filter</code> 和贝塞尔曲线参数，直接收进你的法典！
+            </p>
+          </div>
+        </div>
+
+        <!-- MANUAL PANEL 4: TRUTH VS HYPE MATRIX -->
+        <div id="manual-panel-truth" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- TRACK 2: AI AGENT PROTOCOL SERIALIZER                                 -->
+  <!-- ===================================================================== -->
+  <section id="track-agent" class="hidden max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-28">
+    <div class="os-panel rounded-2xl p-6 sm:p-8 border-silicon-cyan/50">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div>
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-silicon-cyan/15 text-silicon-cyan font-mono text-xs mb-2">
+            <span>🤖 AGENT ENDPOINT // CONJURER_OS_SPEC.md</span>
+          </div>
+          <h2 class="font-mono text-xl sm:text-2xl text-ivory font-bold">
+            Machine-Readable Capability & Topology Stream
+          </h2>
+          <p class="text-xs font-mono text-stone mt-1">
+            Feed this payload to Claude, Gemini, or Cursor so your AI instantly understands your 6-Month Atlas progress, tech stack constraints, and architectural standards.
+          </p>
+        </div>
+        <div class="flex items-center gap-2.5 font-mono text-xs">
+          <button onclick="copyAgentPayload()" class="px-4 py-2.5 rounded-xl bg-silicon-cyan text-obsidian-950 font-bold">
+            📋 Copy Full Agent Markdown
+          </button>
+          <button onclick="switchTrack('human')" class="px-3 py-2.5 rounded-xl bg-obsidian-800 border border-white/15 text-ivory">
+            ← 返回人类传功道场
+          </button>
+        </div>
+      </div>
+
+      <pre id="agent-markdown-pre" class="mt-6 p-5 rounded-xl bg-obsidian-950 border border-white/10 font-mono text-xs text-ivory/90 overflow-x-auto whitespace-pre-wrap leading-relaxed select-all"></pre>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1: SPARK ME (PHILOSOPHY + 90-MIN PENDULUM + 15-MIN ACTION)      -->
+  <!-- ===================================================================== -->
+  <div id="spark-modal" class="hidden fixed inset-0 z-50 bg-obsidian-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="os-panel w-full max-w-lg rounded-2xl border-alchemy-amber/50 p-6 sm:p-7">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10 font-mono text-xs">
+        <span class="text-alchemy-amber font-bold">⚡ CONJURER COGNITIVE SPARK // 破局点火器</span>
+        <button onclick="closeSparkModal()" class="text-stone hover:text-ivory">✕ ESC</button>
+      </div>
+
+      <div class="mt-4">
+        <div id="spark-modal-tag" class="inline-block px-2 py-0.5 rounded bg-silicon-cyan/15 text-silicon-cyan font-mono text-[11px] mb-2"></div>
+        <blockquote id="spark-modal-quote-zh" class="font-serif text-xl sm:text-2xl text-ivory leading-snug"></blockquote>
+        <p id="spark-modal-quote-en" class="font-serif italic text-xs sm:text-sm text-stone mt-2"></p>
+      </div>
+
+      <div class="mt-5 p-4 rounded-xl bg-obsidian-950 border border-emerald/40">
+        <div class="font-mono text-[11px] text-emerald font-bold uppercase">🗡️ 15分钟破局微行动 (DO THIS IN THE NEXT 15 MINS):</div>
+        <p id="spark-modal-action" class="text-xs text-ivory/90 mt-1.5 leading-relaxed font-mono"></p>
+      </div>
+
+      <div class="mt-6 flex items-center justify-between font-mono text-xs">
+        <button onclick="openManaModal(); closeSparkModal();" class="text-alchemy-gold hover:underline">🧪 为魔法续杯</button>
+        <div class="flex items-center gap-2">
+          <button onclick="rollSparkModal()" class="px-4 py-2 rounded-xl bg-alchemy-amber text-obsidian-950 font-bold">
+            ↻ 再来一发灵感 (Spark Again)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 2: REFILL MANA ($1.00 / $6.60 + ORACLE CARD)                    -->
+  <!-- ===================================================================== -->
+  <div id="mana-modal" class="hidden fixed inset-0 z-50 bg-obsidian-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="os-panel w-full max-w-lg rounded-2xl border-alchemy-gold/50 p-6 sm:p-7">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div>
+          <h3 class="font-serif text-2xl text-ivory">Refill the Mana · 为魔法续杯</h3>
+          <p class="font-mono text-[11px] text-alchemy-gold">SOVEREIGN PATRONAGE & ORACLE TAROT</p>
+        </div>
+        <button onclick="closeManaModal()" class="text-stone hover:text-ivory font-mono text-sm">✕</button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 mt-4 font-mono">
+        <button onclick="selectManaAmount('1.00')" id="mana-btn-1" class="p-3.5 rounded-xl bg-obsidian-950 border-2 border-alchemy-gold text-left">
+          <div class="text-[10px] text-stone">SPARK TIER</div>
+          <div class="text-xl font-bold text-ivory mt-0.5">$1.00</div>
+          <div class="text-[11px] text-alchemy-gold mt-0.5">☕ 一杯浓缩算力燃料</div>
+        </button>
+        <button onclick="selectManaAmount('6.60')" id="mana-btn-6" class="p-3.5 rounded-xl bg-obsidian-950 border border-white/15 hover:border-silicon-cyan text-left">
+          <div class="text-[10px] text-silicon-cyan">ELIXIR TIER</div>
+          <div class="text-xl font-bold text-ivory mt-0.5">$6.60</div>
+          <div class="text-[11px] text-stone mt-0.5">🔮 六六大顺满格魔药</div>
+        </button>
+      </div>
+
+      <div class="mt-4 p-4 rounded-xl bg-obsidian-950 border border-silicon-cyan/35">
+        <div class="flex items-center justify-between font-mono text-[11px] text-silicon-cyan">
+          <span>🎴 召唤师神谕彩蛋卡</span>
+          <button onclick="rollOracleCard()" class="hover:underline">↻ 换一张</button>
+        </div>
+        <div id="oracle-card-title" class="font-serif text-base text-alchemy-amber mt-1"></div>
+        <p id="oracle-card-desc" class="text-xs text-ivory/90 mt-1 leading-relaxed"></p>
+      </div>
+
+      <div class="mt-5 flex justify-end gap-2.5 font-mono text-xs">
+        <button onclick="closeManaModal()" class="px-4 py-2 rounded-xl bg-obsidian-800 text-stone">关闭</button>
+        <button onclick="executeManaCheckout()" class="px-5 py-2 rounded-xl bg-alchemy-gold text-obsidian-950 font-bold">⚡ 前往补充魔力</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER & MUSE VERIFICATION BAR                                        -->
+  <!-- ===================================================================== -->
+  <footer class="border-t border-white/10 bg-obsidian-950 py-8 font-mono text-xs text-stone">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-alchemy-gold font-bold">CONJURER OS // 召唤师硅基法典</span>
+        <span>·</span>
+        <span>conjurerlab.us</span>
+        <span>·</span>
+        <a href="https://conjurer.us" target="_blank" rel="noopener noreferrer" class="text-silicon-cyan hover:underline">Main Hub: conjurer.us</a>
+        <span>·</span>
+        <span>@ConjurerLab</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="openManaModal()" class="px-2.5 py-1 rounded bg-alchemy-amber/15 text-alchemy-amber border border-alchemy-amber/30 hover:bg-alchemy-amber/25">
+          🧪 为魔法续杯 ($1 / $6.6)
+        </button>
+        <span class="px-2.5 py-1 rounded bg-emerald/10 text-emerald border border-emerald/30">
+          ✓ Muse Audit Ready · GitHub & Vercel Ready
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- CORE JAVASCRIPT ENGINE (3-VALVE ARCHITECTURE: STATE -> RENDER -> I/O) -->
+  <!-- ===================================================================== -->
+  <script>
+    /*************************************************************************
+     * 🔥 召唤师亲手点火配置台 (VALVE 1: CONJURER_CONFIG & DATA STORE)
+     * 导师传功提示：平时你想改网站名字、换 Stripe 链接、或者改 6 个月的内容，
+     * 只改这一个区域，完全不用碰下面的渲染代码！这就是「数据与视图解耦」。
+     *************************************************************************/
+    const CONJURER_CONFIG = {
+      siteTitle: "CONJURER OS // 召唤师硅基法典",
+      domain: "conjurerlab.us",
+      mainPortalUrl: "https://conjurer.us",
+      handle: "@ConjurerLab",
+      storageKey: "conjurer_os_v1_state",
+      defaultThemeAccent: "#00F0FF",
+      stripeTipLinks: {
+        "1.00": "https://buy.stripe.com/aFadRac4QgOF1zE56jdfG00",
+        "6.60": "https://buy.stripe.com/aFadRac4QgOF1zE56jdfG00"
+      }
+    };
+
+    const ATLAS_TERRITORIES = [
+      {
+        id: "M01",
+        monthLabel: "MONTH 01 // 觉醒之森",
+        svgX: 110,
+        svgY: 385,
+        coord: "SECTOR 01 // 14.2°N, 38.5°E",
+        titleZh: "觉醒之森 · 上下文工程与零后端单文件法阵",
+        titleEn: "The Awakening Grove · Context Engineering & Single-File Architecture",
+        deliverable: "Claude 新手通关互动清单 + 零后端单文件 API 召唤器",
+        loreDesc: "彻底戒掉把大模型当聊天机器人的习惯。2026 年的真法术是「上下文工程（Context Engineering）」：用严密的 XML 边界标签、1~2 个黄金样本（Few-Shot）和反谄媚禁令，配合零后端的单文件 HTML 架构，在 2 小时内独立交付可交互作品。",
+        blueprintTitle: "📜 M01 母版：工业级 XML 元提示词契约 (Master Context Contract)",
+        blueprintCode: `<role_and_axiom>
+You are a Principal Systems Architect & Popperian Epistemologist.
+</role_and_axiom>
+<architectural_constraints>
+- Consolidate ALL HTML, Tailwind CSS, and JS into ONE self-contained index.html file.
+- Persist user state and API keys strictly in browser localStorage.
+- Aesthetic: Obsidian (#090A0F), Ivory (#F3EFEA), Silicon Cyan (#00F0FF), 1px borders.
+</architectural_constraints>
+<negative_boundaries>
+- ZERO sycophancy or polite fluff. Point out 3 fatal blind spots BEFORE coding.
+- NEVER use alert() or confirm(); NEVER leave '...' placeholders.
+</negative_boundaries>`,
+        loadBearingWalls: [
+          "1. `<architectural_constraints>` 锁死了「单文件 + LocalStorage」，彻底砍掉了配环境与后端服务器的复杂度。",
+          "2. `<negative_boundaries>` 显式禁止了 `...` 省略号和 `alert()` 弹窗，防止 AI 偷懒给你半截残废代码。",
+          "3. 先证伪后编码的指令顺序，迫使模型在生成代码前先激活高维逻辑推理注意力头。"
+        ],
+        tunableKnobs: [
+          "🎛️ 阀门 A：修改 `<role_and_axiom>` 里的专家身份（如改为双语儿童教育游戏设计师）。",
+          "🎛️ 阀门 B：修改 `Aesthetic` 色盘参数（可换成米白宣纸风或极简画廊风）。",
+          "🎛️ 阀门 C：在底部追加 1 个你最满意的 JSON 样本（Few-Shot），模型输出水准瞬间翻倍。"
+        ],
+        drillTask: "复制上方 XML 母版，去 Claude 或 Gemini 生成一个带本地进度保存的『5关卡小工具』，并亲手在代码顶部修改它的标题文字。",
+        sources: [
+          { name: "Anthropic Official Prompt Interactive Tutorial", url: "https://github.com/anthropics/prompt-eng-interactive-tutorial" },
+          { name: "Claude Official System Prompts Archive", url: "https://docs.anthropic.com/en/release-notes/system-prompts" },
+          { name: "Andrej Karpathy: Intro to Large Language Models", url: "https://www.youtube.com/results?search_query=Andrej+Karpathy+Intro+to+Large+Language+Models" },
+          { name: "David Deutsch: The Beginning of Infinity", url: "https://www.thebeginningofinfinity.com/" }
+        ],
+        gateQuestions: [
+          "我已经彻底戒掉“求求你不要出错”这类哀求式提示词，全面改用 XML 标签契约",
+          "我用破妄镜反谄媚咒语审计了自己的一项真实计划，找出了 3 个盲点",
+          "我独立部署上线了第一个零后端单文件 HTML 互动工具"
+        ]
+      },
+      {
+        id: "M02",
+        monthLabel: "MONTH 02 // 炼金工坊",
+        svgX: 245,
+        svgY: 270,
+        coord: "SECTOR 02 // 24.8°N, 62.1°E",
+        titleZh: "炼金工坊 · Python 防腐数据工厂与原生 Schema",
+        titleEn: "The Alchemy Forge · Python factory.py & Native Structured Outputs",
+        deliverable: "25行 Python 自动化内容生成工厂 (`factory.py`) + 三味真火自测闭环",
+        loreDesc: "为什么业余者的自动化脚本跑十次崩三次？因为他们用正则表达式去切 AI 的自由文本。真召唤师在 API 层直接传入 Pydantic `BaseModel`（`response_schema`），从物理解码层锁死语法树，100% 吐出零格式错误的双语关卡 JSON！",
+        blueprintTitle: "🐍 M02 母版：factory.py (2026 Google GenAI 原生结构化输出脚本)",
+        blueprintCode: `# factory.py — Verified 2026 Zero-Regex Structured Data Factory
+from pydantic import BaseModel, Field
+from google import genai
+
+class VocabQuestCard(BaseModel):
+    id: str = Field(description="Level ID, e.g., LV01")
+    word_en: str = Field(description="Target SAT/Academic English word")
+    story_scene_zh: str = Field(description="Historical adventure hook in Chinese")
+    chrono_coins_reward: int = Field(description="Reward coins between 10 and 50")
+
+class LevelBatch(BaseModel):
+    levels: list[VocabQuestCard]
+
+def forge_levels(theme: str) -> LevelBatch:
+    client = genai.Client() # Reads GEMINI_API_KEY from environment
+    res = client.models.generate_content(
+        model="gemini-2.5-pro",
+        contents=f"Generate 3 adventure vocabulary levels for theme: {theme}",
+        config={"response_mime_type": "application/json", "response_schema": LevelBatch, "temperature": 0.3}
+    )
+    return res.parsed
+
+if __name__ == "__main__":
+    batch = forge_levels("Ancient Alexandria Library")
+    assert len(batch.levels) == 3, "Golden Eval Failed!"
+    print(batch.model_dump_json(indent=2))`,
+        loadBearingWalls: [
+          "1. `class VocabQuestCard(BaseModel)` 是数据铁律模具，规定了每个字段的名字、类型（str/int）和含义。",
+          "2. `config={'response_mime_type': 'application/json', 'response_schema': LevelBatch}` 是物理锁，保证模型绝不可能吐出多余的解释废话。",
+          "3. 底部的 `assert len(batch.levels) == 3` 是守门员断言，不合格的数据绝不准写入你的前端数据库。"
+        ],
+        tunableKnobs: [
+          "🎛️ 阀门 A：在 `VocabQuestCard` 里增删你自己的字段（比如加上 `pinyin: str` 或 `quiz_options: list[str]`）。",
+          "🎛️ 阀门 B：修改 `theme` 输入参数，一键批量生产 50 个不同历史时期的教育关卡。",
+          "🎛️ 阀门 C：调整 `temperature`（0.1 极度严谨守规矩，0.6 故事更有想象力）。"
+        ],
+        drillTask: "把上面的 `factory.py` 复制到 Google Colab 或本地 VS Code，在 `VocabQuestCard` 里亲手增加一个新字段 `hint_zh: str`，跑通一次生成！",
+        sources: [
+          { name: "Google Gemini API: Structured Outputs Guide", url: "https://ai.google.dev/gemini-api/docs/structured-output" },
+          { name: "Anthropic Docs: Tool Use & Strict JSON Schemas", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
+          { name: "Pydantic Official Documentation", url: "https://docs.pydantic.dev/latest/" },
+          { name: "Google AI Studio Workbench", url: "https://aistudio.google.com/" }
+        ],
+        gateQuestions: [
+          "我掌握了 Native Structured Outputs（`response_schema`），彻底告别了脆弱的正则切字符串",
+          "我能独立修改 Pydantic `BaseModel` 里的字段来定制自己的教育/内容数据包",
+          "我为自己的数据生产脚本加上了 `assert` 黄金测试断言"
+        ]
+      },
+      {
+        id: "M03",
+        monthLabel: "MONTH 03 // 双语传送门",
+        svgX: 385,
+        svgY: 335,
+        coord: "SECTOR 03 // 31.5°N, 88.4°E",
+        titleZh: "双语传送门 · 建筑级空间网格与 Git 时光机部署",
+        titleEn: "The Bilingual Portal · Architectural Grid Aesthetics & Edge CI/CD",
+        deliverable: "建筑感双语数字主城 (`conjurer.us` + `conjurerlab.us`) & Git 标签工作流",
+        loreDesc: "消除廉价的“AI 塑料紫渐变感”！把室内建筑空间规划的微水泥质感、1px 标尺网格、衬线与等宽字体碰撞以及物理阻尼曲线写进 CSS。同时掌握 Git 时光回溯四式，彻底终结 V1 到 V29 的文件名备份混乱。",
+        blueprintTitle: "🏛️ M03 母版：建筑级极简面板 CSS + 客户端安全密钥保险箱",
+        blueprintCode: `/* 1. Architectural Microcement Panel & Physical Cubic-Bezier */
+.architect-panel {
+  background: linear-gradient(155deg, rgba(17,19,28,0.95), rgba(9,10,15,0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* 2. Zero-Backend Client-Side Key Vault (Safe LocalStorage) */
+const KeyVault = {
+  save: (apiKey) => localStorage.setItem('CONJURER_CLIENT_KEY', btoa(apiKey.trim())),
+  load: () => { try { return atob(localStorage.getItem('CONJURER_CLIENT_KEY') || ''); } catch { return ''; } },
+  clear: () => localStorage.removeItem('CONJURER_CLIENT_KEY')
+};`,
+        loadBearingWalls: [
+          "1. `1px solid rgba(255, 255, 255, 0.08)` 极细半透明边框，是营造精密建筑图纸感（而非笨重色块）的核心。",
+          "2. `cubic-bezier(0.22, 1, 0.36, 1)` 模拟了真实物理世界快速启动、柔和阻尼停下的高级手感。",
+          "3. `KeyVault` 让用户把自己的 API Key 存在本地浏览器里，你的服务器零成本、零账单风险。"
+        ],
+        tunableKnobs: [
+          "🎛️ 阀门 A：按 `Cmd + Option + I` 打开浏览器 Application -> Local Storage，亲眼查看并修改存储键值。",
+          "🎛️ 阀门 B：在终端使用 `git tag v1.0-gold` 给满意的版本铸造金身，随时用 `git checkout .` 一秒复原。",
+          "🎛️ 阀门 C：在 Vercel 绑定自定义域名 DNS（A记录指向 `76.76.21.21` 或 CNAME 指向 `cname.vercel-dns.com`）。"
+        ],
+        drillTask: "在 MacBook 上按下 Cmd+Option+I 打开开发者工具，切到 Application -> Local Storage，找到本网站的 `conjurer_os_v1_state` 并观察它的 JSON 结构！",
+        sources: [
+          { name: "Simon Willison: Single-File Web App Patterns", url: "https://simonwillison.net/" },
+          { name: "Easings.net: Cubic-Bezier Motion Curves", url: "https://easings.net/" },
+          { name: "MDN Web Docs: LocalStorage API", url: "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" },
+          { name: "Pro Git Book (Tagging & Branching)", url: "https://git-scm.com/book/zh/v2" }
+        ],
+        gateQuestions: [
+          "我掌握了 Git 时光回溯四式，不再靠复制 V27/V28/V29 文件名来手动备份",
+          "我学会了用 Mac 浏览器 Cmd+Option+I 检查 Console 报错行号和 LocalStorage 数据",
+          "我的双域名矩阵 (`conjurer.us` 与 `conjurerlab.us`) 已成功联通 GitHub 与 Vercel 自动部署"
+        ]
+      },
+      {
+        id: "M04",
+        monthLabel: "MONTH 04 // 自动化星盘",
+        svgX: 505,
+        svgY: 185,
+        coord: "SECTOR 04 // 42.0°N, 105.7°E",
+        titleZh: "自动化星盘 · 确定性智能体管线与 MCP 协议",
+        titleEn: "The Automaton Astrolabe · Deterministic Workflows, MCP v2 & Make.com",
+        deliverable: "三步确定性双语内容炼金流水线 + Make.com 防封号分发路由",
+        loreDesc: "拒绝失控烧钱的黑盒多智能体死循环！遵循 Anthropic《Building Effective Agents》第一公理：用清晰的确定性分步代码（提取内核 ➔ 北美文化重塑 ➔ Muse 毒舌质检）串联任务，并通过 MCP 协议或 Make.com Webhook 自动化流转。",
+        blueprintTitle: "⚙️ M04 母版：三步确定性双语重塑管线 (Deterministic Chaining)",
+        blueprintCode: `# pipeline.py — Deterministic 3-Step Cross-Cultural Content Engine
+def run_sovereign_pipeline(raw_zh_notes: str) -> dict:
+    # Step 1: Extract hard-to-vary core thesis (Gemini Pro)
+    thesis = call_llm(system="Extract 3 falsifiable axioms.", user=raw_zh_notes)
+    
+    # Step 2: American Cultural Transcreation (English-First X Article)
+    en_draft = call_llm(
+        system="Rewrite for US tech builders. Short 1-2 sentence paragraphs. Zero translationese.",
+        user=thesis
+    )
+    
+    # Step 3: Ruthless Aesthetic & Logic Audit (Muse / Claude)
+    final_pack = call_llm(system="Cut 25% fluff. Verify hook punchiness.", user=en_draft)
+    return {"thesis": thesis, "en_article": final_pack}`,
+        loadBearingWalls: [
+          "1. 把一个复杂大任务拆成 3 个职责单一的确定性函数（`thesis` -> `en_draft` -> `final_pack`），哪一步效果不好就只改哪一步的 Prompt。",
+          "2. 第二步显式规定了 `Short 1-2 sentence paragraphs` 与 `Zero translationese`，确保英文首发符合北美母语阅读节奏。",
+          "3. 第三步独立设置审美质检关卡，避免模型“既当运动员又当裁判员”。"
+        ],
+        tunableKnobs: [
+          "🎛️ 阀门 A：替换 `Step 2` 的目标受众画像（如改为北美家长群体、独立开发者或约会文化痛点）。",
+          "🎛️ 阀门 B：在 Make.com 的 Webhook 后面加上一个 `Sleep (随机延迟 15~45 秒)` 模块，保护社交账号安全。",
+          "🎛️ 阀门 C：开启 API 的 Context Caching（上下文缓存），固定母版系统指令可节省最高 80% Token 成本。"
+        ],
+        drillTask: "把你最近的一篇中文笔记，严格按照『①提炼3条公理 -> ②北美痛点重写 -> ③砍掉25%废话』分三次喂给 AI，对比一次性生成的巨大差距！",
+        sources: [
+          { name: "Anthropic Research: Building Effective Agents", url: "https://www.anthropic.com/research/building-effective-agents" },
+          { name: "Model Context Protocol (MCP) Official Spec", url: "https://modelcontextprotocol.io/" },
+          { name: "Make.com Webhooks & Router Documentation", url: "https://www.make.com/en/help/tools/webhooks" }
+        ],
+        gateQuestions: [
+          "我建立了分步可控的确定性流水线（Deterministic Workflow），不被黑盒 Agent 框架忽悠",
+          "我掌握了不同项目使用独立 Context / 独立文件夹的『防串味隔离法则』",
+          "我跑通了从灵感笔记到英文首发 X 长文 + 中文同步的高效管线"
+        ]
+      },
+      {
+        id: "M05",
+        monthLabel: "MONTH 05 // 造物主沙盒",
+        svgX: 610,
+        svgY: 220,
+        coord: "SECTOR 05 // 51.9°N, 114.2°E",
+        titleZh: "造物主沙盒 · 游戏化状态机与空间交互模型",
+        titleEn: "The Creator's Sandbox · Gamified State Machines & Interactive SVG/3D",
+        deliverable: "带时间金币 (Chrono-Coins) 与图鉴收集系统的旗舰教育游戏应用",
+        loreDesc: "当写代码变得廉价时，「让人上瘾的游戏化心流（Flow）」就是你的护城河。在单文件或 Next.js 中注入 RPG 状态机（金币奖励、连击倍率、神谕印章解锁）与纯原生 SVG/3D 空间交互，让学习者在 10 秒内获得第一次多巴胺正反馈。",
+        blueprintTitle: "💎 M05 母版：游戏化时间金币与印章状态机 (Gamified State Engine)",
+        blueprintCode: `// Gamified Chrono-Coin & Badge State Machine (Valve 1 -> Valve 3 -> Valve 2)
+const GameEngine = {
+  state: { coins: 100, streak: 1, unlockedStamps: ['ALEXANDRIA_01'] },
+  completeQuest(questId, baseReward = 25) {
+    const bonus = Math.min(this.state.streak * 5, 50);
+    this.state.coins += (baseReward + bonus);
+    this.state.streak += 1;
+    if (!this.state.unlockedStamps.includes(questId)) {
+      this.state.unlockedStamps.push(questId);
+    }
+    localStorage.setItem('CONJURER_GAME_SAVE', JSON.stringify(this.state));
+    this.renderHUD(); // Re-trigger Valve 2 UI update
+  }
+};`,
+        loadBearingWalls: [
+          "1. `completeQuest` 把「连击奖励计算 + 印章去重解锁 + LocalStorage 存档 + 刷新界面」封装在一个原子操作里。",
+          "2. `Math.min(this.state.streak * 5, 50)` 设置了连击奖励上限，防止游戏经济系统通货膨胀崩盘。",
+          "3. 纯客户端 JSON 存档让孩子或学习者刷新网页也不会丢失辛苦攒下的金币。"
+        ],
+        tunableKnobs: [
+          "🎛️ 阀门 A：修改 `baseReward` 和连击公式，调节游戏的爽感节奏。",
+          "🎛️ 阀门 B：把 `unlockedStamps` 数组绑定到 SVG 历史地图或萌宠图鉴卡片的解锁状态上。",
+          "🎛️ 阀门 C：配合 Web Audio API 合成一段清脆的金币入账音效（零外部音频文件依赖）。"
+        ],
+        drillTask: "点击本面板右下角的『⚡ 结印点亮此领地』按钮，观察顶部境界进度条上涨与星图变绿——这就是你要装进自己教育产品的状态机闭环！",
+        sources: [
+          { name: "Nicky Case: Explorable Explanations", url: "https://ncase.me/" },
+          { name: "Yu-kai Chou: Octalysis Gamification Framework", url: "https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/" },
+          { name: "MDN: SVG Animation & CSS 3D Transforms", url: "https://developer.mozilla.org/en-US/docs/Web/SVG" }
+        ],
+        gateQuestions: [
+          "我理解了游戏化状态机（金币、连击、图鉴解锁）的核心代码逻辑",
+          "我的交互产品能在用户进入的前 10 秒内触发第一次清晰的正向反馈",
+          "我掌握了用可打印/可交互双形态资产提升教育产品实用价值的技巧"
+        ]
+      },
+      {
+        id: "M06",
+        monthLabel: "MONTH 06 // 主权领地",
+        svgX: 640,
+        svgY: 115,
+        coord: "SECTOR 06 // 64.0°N, 128.0°E",
+        titleZh: "主权召唤师领地 · 一鱼四吃杠杆与 OaaS 商业闭环",
+        titleEn: "Sovereign Citadel · One-Build-Four-Harvests & OaaS Stripe Flywheel",
+        deliverable: "主权一人实验室商业闭环 (一鱼四吃飞轮 + 书签率优化 + Stripe 收款)",
+        loreDesc: "六个月修炼的终局：不做按小时出卖时间的打工人，而成为「主权认知合成器（Sovereign Cognitive Synthesizer）」。严格执行【单点造物，四维收割（一鱼四吃）】，以 X 书签收藏率（Bookmark-to-View > 1.5%）与真实 Stripe 转化为唯一冷酷记分牌。",
+        blueprintTitle: "👑 M06 母版：主权召唤师「一鱼四吃」杠杆协议 (Sovereign Flywheel)",
+        blueprintCode: `// THE SOVEREIGN 4X LEVERAGE PROTOCOL (每周只挥一剑，四维同时收割)
+const WeeklySovereignFlywheel = {
+  step1_Build: "周末用 3 小时锻造 1 个真实可玩的单文件工具或教育关卡 (Ship to Vercel)",
+  step2_Grimoire: "将踩坑提炼出的母版代码与承重墙解剖存入 conjurerlab.us 星图",
+  step3_EnglishX: "周二发布 English-First 拆解长文 (配架构图 + 书签钩子, 目标收藏率 > 1.5%)",
+  step4_ChineseOS: "周四转译升华为《Human OS 审计报告》深度中文长文，挂载『为魔法续杯』收款"
+};`,
+        loadBearingWalls: [
+          "1. `step1_Build` 确保你的所有文字都有真实的工程造物（Proof-of-Work）做底气，绝不写空洞鸡汤。",
+          "2. `step3_EnglishX` 切入全球高客单价科技网络，利用信息图与清单体拉高 Bookmark（书签收藏）权重。",
+          "3. `step4_ChineseOS` 用东方哲学与系统动力学降维打击，沉淀高粘性铁杆读者与商业赞助。"
+        ],
+        tunableKnobs: [
+          "🎛️ 阀门 A：将本文件顶部的 `CONJURER_CONFIG.stripeTipLinks` 替换为你自己在 Stripe 后台生成的真实 Payment Links。",
+          "🎛️ 阀门 B：立下「30天锁死门户 UI 铁律」——今天上线后 30 天内只更新内容与子作品，绝不反复折腾外壳颜色。",
+          "🎛️ 阀门 C：严格执行「90分钟碳硅钟摆护法」——每满 90 分钟离开电脑去跳舞或做地面流动，保持肉身容器满电。"
+        ],
+        drillTask: "把今天生成的这份 `index.html` 推上 GitHub 并部署到 `conjurerlab.us`，然后用『一鱼四吃』法则写下你的第一篇开门大吉 Launch Post！",
+        sources: [
+          { name: "Paul Graham: How to Do Great Work", url: "https://paulgraham.com/greatwork.html" },
+          { name: "Naval Ravikant: Code & Media Leverage", url: "https://nav.al/rich" },
+          { name: "Stripe Payment Links Official Guide", url: "https://docs.stripe.com/payment-links" }
+        ],
+        gateQuestions: [
+          "我已经把 `conjurerlab.us` 正式上线，并立下 30 天不折腾外壳、只发作品的铁律",
+          "我真正跑通了一次「一鱼四吃」（1个造物同时产出法典记录与中英双语长文）",
+          "我坚持了每工作 90 分钟离开屏幕用舞蹈与身体律动充电的护法习惯"
+        ]
+      }
+    ];
+
+    const SPELL_PRESETS = {
+      singleFile: {
+        label: "🏛️ 单文件交互应用",
+        role: "You are a Principal Frontend Architect & Minimalist Spatial Designer specializing in zero-dependency Single-File HTML/Tailwind/JS applications.",
+        mission: "Build a complete, self-contained interactive web application in a single index.html file. Feature an architectural dark mode palette (Obsidian #090A0F, Ivory #F3EFEA, Silicon Cyan #00F0FF, Alchemy Gold #D4A359) and persist user state in localStorage.",
+        constraints: "NO multi-file splits, NO external build steps required, NO placeholder '...' comments, NO alert() or confirm() dialogs, NO generic neon purple gradients.",
+        contract: "Return 100% runnable HTML with cleanly separated 3-Valve JavaScript architecture (1. STATE_CONFIG, 2. RENDER_FUNCTIONS, 3. EVENT_AND_STORAGE_HANDLERS)."
+      },
+      pythonFactory: {
+        label: "🐍 Python 数据工厂",
+        role: "You are a Senior Python Data Engineer & AI Pipeline Architect.",
+        mission: "Write a clean, under-60-line Python script (`factory.py`) using the official Google GenAI SDK and Pydantic `BaseModel` to generate strictly typed bilingual educational JSON datasets.",
+        constraints: "NEVER use fragile regex or string splitting to parse JSON. NEVER use deprecated SDK methods. Use Native Structured Outputs (`response_schema`).",
+        contract: "Include Pydantic schema definitions, batch generation function with error handling, and a 3-case Golden Eval assertion block at the bottom."
+      },
+      edTechGame: {
+        label: "🎮 双语教育游戏关卡",
+        role: "You are a Master EdTech Game Designer (blending Nicky Case's interactive explanations with Yu-kai Chou's Octalysis gamification).",
+        mission: "Create an interactive vocabulary & historical quest module where learners earn Chrono-Coins (时间金币), maintain streak multipliers, and unlock illustrated stamps saved in localStorage.",
+        constraints: "NO boring multiple-choice walls. Trigger a visual and audio dopamine reward within the first 10 seconds of user interaction.",
+        contract: "Deliver a single-file playable HTML module + a clean JSON level array at the top of the script so levels can be added easily."
+      },
+      xViral: {
+        label: "🌍 跨洋 X 爆款长文",
+        role: "You are a viral American Tech & Culture Essayist (blending Paul Graham's clarity, Naval's aphoristic density, and Dan Koe's structural rhythm).",
+        mission: "Transcreate my raw bilingual insights into a high-bookmark English X Article / Thread tailored specifically to American builder & cultural pain points.",
+        constraints: "NO literal translationese, NO academic stiffness, NO walls of dense text, NO cliché AI phrases ('In today's fast-paced world', 'delve into').",
+        contract: "Use punchy 1-2 sentence paragraphs, strong visual rhythm, a Pattern-Interrupt Hook, 3 counter-intuitive mental models, and a bookmark-worthy summary checklist."
+      }
+    };
+
+    const SPIRIT_COMPASS_DATA = [
+      {
+        spirit: "Gemini 2.5 / 3 Pro",
+        badge: "首席空间架构师 & 百万上下文主神",
+        superpower: "一次性锻造完整的千行单文件交互应用（Canvas）、全局系统架构推演、以及配合 Pydantic `response_schema` 批量生产零错误 JSON 数据。",
+        blindspot: "不要在同一个长对话里连续让它做 20 次零碎小修改，上下文过长后容易出现局部覆盖。",
+        isolationRule: "🛡️ 防串味铁律：一个独立产品开一个独立对话窗口；一旦单文件成型，立刻下载到本地用 Git 锁死金身！",
+        color: "silicon-cyan"
+      },
+      {
+        spirit: "Claude Code / Sonnet",
+        badge: "外科手术刀 & 结构化逻辑宗师",
+        superpower: "对 XML 标签契约极其敏感，擅长对本地多文件项目进行精准的局部代码重构、撰写高密度英文长文、以及执行 MCP 本地工具调用。",
+        blindspot: "默认有时会过度谨慎或写出略显啰嗦的说教铺垫，必须挂载「破妄镜反谄媚禁令」。",
+        isolationRule: "🛡️ 防串味铁律：使用 Claude Projects 为每个项目建立专属知识库，绝不把儿童教育代码和哲学长文混在同一个 Project 里。",
+        color: "alchemy-amber"
+      },
+      {
+        spirit: "Cursor Composer",
+        badge: "本地施工队长 & 终端自动化快刀",
+        superpower: "直接在你的 MacBook 本地文件夹里读写代码、运行 `factory.py` 脚本、查看终端报错并一键推送到 GitHub。",
+        blindspot: "如果不加约束直接让它改全站，它可能会擅自改动你已经调好的 CSS 样式。",
+        isolationRule: "🛡️ 防串味铁律：每次让 Cursor 动手前，先在终端敲 `git checkout -b exp` 开平行分支，并明确指定『只准修改 VALVE 1 数据区』。",
+        color: "emerald"
+      },
+      {
+        spirit: "Muse (Meta AI)",
+        badge: "审美策展总监 & 双语语感质检员",
+        superpower: "挑出中英文切换时的生硬翻译腔、检查微水泥极简风 UI 的留白呼吸感、砍掉文章里 25% 的自嗨废话。",
+        blindspot: "不适合直接生成上千行的底层复杂工程代码。",
+        isolationRule: "🛡️ 防串味铁律：把它固定在流水线的最后一环（Step 3 终审官），上线前让它做一次冷酷的审美与语感体检。",
+        color: "ivory"
+      },
+      {
+        spirit: "Grok 3",
+        badge: "全网实时脉搏雷达 & 痛点捕手",
+        superpower: "实时抓取 X（Twitter）上北美科技圈与文化圈过去 48 小时最真实的争议槽点、高赞评论与反共识切入角。",
+        blindspot: "直接生成的长文结构有时偏散乱，需要用你的《Human OS》框架重新收束。",
+        isolationRule: "🛡️ 防串味铁律：只让它替你收集鲜活的战场情报与痛点素材，拿到素材后交回给你的主脑炉子锻造正文。",
+        color: "alchemy-gold"
+      },
+      {
+        spirit: "Make.com + GitHub",
+        badge: "不眠铁卫 & 零边际成本分发网",
+        superpower: "代码 `git push` 后 15 秒内全球 Vercel 自动上线；内容定稿后通过 Webhook + 随机 Sleep 延迟安全分发到多端。",
+        blindspot: "如果上游输入的 JSON 格式不固定，Webhook 路由就会报错中断。",
+        isolationRule: "🛡️ 防串味铁律：上游必须配合 M02 的 Pydantic `response_schema` 锁死字段，确保喂给 Make.com 的永远是 100% 标准 JSON。",
+        color: "crimson"
+      }
+    ];
+
+    const TRUTH_VS_HYPE_DATA = [
+      {
+        domain: "01. 提示词工程 (Prompting ➔ Context Engineering)",
+        hype: "❌ 过时假把式：背诵所谓的“神级催眠咒语”或收集几百条僵化话术模板，在提示词里用感叹号苦苦哀求 AI 不要出错。",
+        truth: "✅ 2026 真法术：使用闭合 XML 结构化标签（`<role>`, `<constraints>`, `<output_contract>`）+ 1~2 个黄金样本（Few-Shot）+ 破妄镜反谄媚协议。"
+      },
+      {
+        domain: "02. 数据生产管道 (Regex ➔ Native Structured Outputs)",
+        hype: "❌ 过时假把式：让 AI 直接输出 JSON 文本，再用脆弱的正则表达式或字符串切片去解析，跑十次崩三次。",
+        truth: "✅ 2026 真法术：在 API 调用层直接传入 Pydantic Schema（`response_schema`），从物理采样底层锁死语法树，100% 零格式报错。"
+      },
+      {
+        domain: "03. 智能体工作流 (Autonomous Chaos ➔ Deterministic Chains)",
+        hype: "❌ 过时假把式：安装极其笨重的黑盒多智能体框架，让 5 个 AI 互相无限聊天烧光 Token，产出一堆平庸正确的废话。",
+        truth: "✅ 2026 真法术：遵循 Anthropic 准则，用不到 60 行的确定性 Python 脚本串联 3 个清晰步骤，每步配 `assert` 黄金测试断言。"
+      },
+      {
+        domain: "04. 版本与安全感 (V1..V29 File Chaos ➔ Git Time-Machine)",
+        hype: "❌ 过时假把式：因为害怕 AI 改坏代码，每次修改都另存为 `V28_final_new.html`，最后满桌面都是文件，自己都分不清哪个能跑。",
+        truth: "✅ 2026 真法术：用 `git tag` 铸造金身存档，用 `git checkout .` 一秒时光倒流，永远只在同一个干净的 `index.html` 上大胆进化。"
+      }
+    ];
+
+    const SPARK_LIBRARY = [
+      {
+        tag: "DEUTSCHIAN EPISTEMOLOGY // 无穷的开始",
+        zh: "「一切真正的进步，都源于创造出『难以被随意篡改的好解释（Hard-to-vary Explanations）』。」代码语法本身正在贬值，但你看穿系统承重墙的架构解释力价值连城。",
+        en: "All progress comes from the search for good, hard-to-vary explanations. Syntax is depreciating; architectural clarity is compounding.",
+        action: "点开当前星图领地的【🔬 2. 承重墙解剖】标签，亲手改动代码里的 1 个阀门参数，体会掌控系统的快感！"
+      },
+      {
+        tag: "CARBON-SILICON PENDULUM // 90分钟肉身护法钟摆",
+        zh: "「绝大多数程序员都是僵硬的缸中之脑，而你懂空间尺度与舞蹈的流动（Flow）。当你的肉身处于松弛流动态时，你写出的界面和文字才有别人抄不走的生命呼吸感。」",
+        en: "Most builders are trapped in rigid skulls. Your secret weapon is somatic flow. When your body moves fluidly, your architecture breathes.",
+        action: "如果今天你在屏幕前已连续坐满 90 分钟：立刻合上电脑，放一首低沉舒缓的慢歌，去做 10 分钟舞蹈流动或脊柱伸展！"
+      },
+      {
+        tag: "ONE BUILD FOUR HARVESTS // 一鱼四吃杠杆铁律",
+        zh: "「永远不要打单倍杠杆的仗。不要星期一想做游戏、星期二想写长文、星期三想搞脚本——把它们串成同一剑的四次收割！」",
+        en: "Never swing the sword for a single yield. One build must yield four sovereign assets across code and bilingual media.",
+        action: "把今天上线的这座 CONJURER OS 截一张星图高清图，配 5 句犀利的英文洞察，作为你本周的英文首发 X 帖素材！"
+      },
+      {
+        tag: "CHUANG TZU // 庄子·逍遥游",
+        zh: "「风之积也不厚，则其负大翼也无力。」AI 算力就是九万里扶摇之风，而你的单文件母版、Python 数据工厂和 Git 时光机，就是承托大鹏的厚风。",
+        en: "If the accumulation of wind is not deep enough, it lacks the strength to bear great wings. Build your foundational protocols.",
+        action: "今晚把 `conjurerlab.us` 推上 GitHub 后，立下『30天绝不再改门户外壳，只往里面挂真实子作品』的铁律！"
+      }
+    ];
+
+    const ORACLE_CARDS = [
+      {
+        title: "🎴 神谕 01 · 破妄之刃 (The Blade of Falsification)",
+        desc: "今日宜使用『破妄镜』向 AI 提出尖锐的反面问题。当你不再寻求顺从的夸奖时，真正的商业护城河就会浮现。"
+      },
+      {
+        title: "🎴 神谕 02 · 三阀门工匠 (Master of the Three Valves)",
+        desc: "今日宜亲手修改一行 `CONJURER_CONFIG` 配置代码。当你亲手拨动数据阀门看到画面变化时，黑盒恐惧将彻底烟消云散。"
+      },
+      {
+        title: "🎴 神谕 03 · 扶摇大鹏 (The Sovereign Wind-Rider)",
+        desc: "今日宜锁死 UI、直接推上 GitHub。70 分跑在真实世界里的飞船，永远胜过 100 分停在图纸上的航母！"
+      }
+    ];
+
+    /*************************************************************************
+     * 🟡 STATE ENGINE (持久化状态管理 - 自动同步 LocalStorage)
+     *************************************************************************/
+    let appState = {
+      selectedMonthId: "M01",
+      activeConsoleTab: "blueprint", // 'blueprint' | 'anatomy' | 'crucible'
+      atlasViewMode: "map",          // 'map' | 'cards'
+      langMode: "bilingual",         // 'bilingual' | 'en'
+      territories: {
+        M01: { unlocked: true, checks: [true, true, true], url: "https://conjurerlab.us", notes: "CONJURER OS 硅基法典已铸成，XML 契约与单文件架构就绪！" },
+        M02: { unlocked: false, checks: [false, false, false], url: "", notes: "" },
+        M03: { unlocked: false, checks: [false, false, false], url: "", notes: "" },
+        M04: { unlocked: false, checks: [false, false, false], url: "", notes: "" },
+        M05: { unlocked: false, checks: [false, false, false], url: "", notes: "" },
+        M06: { unlocked: false, checks: [false, false, false], url: "", notes: "" }
+      },
+      selectedManaAmount: "1.00"
+    };
+
+    // Map Pan/Zoom runtime state
+    let mapZoom = 1;
+    let mapPanX = 0;
+    let mapPanY = 0;
+    let isMapDragging = false;
+    let dragOriginX = 0;
+    let dragOriginY = 0;
+    let showGlowLayer = true;
+
+    function loadPersistedState() {
+      try {
+        const raw = localStorage.getItem(CONJURER_CONFIG.storageKey);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && parsed.territories) {
+            appState = {
+              ...appState,
+              ...parsed,
+              territories: { ...appState.territories, ...parsed.territories }
+            };
+          }
+        }
+      } catch (err) {
+        console.warn("LocalStorage read fallback:", err);
+      }
+    }
+
+    function savePersistedState() {
+      try {
+        localStorage.setItem(CONJURER_CONFIG.storageKey, JSON.stringify(appState));
+      } catch (err) {
+        console.warn("LocalStorage write fallback:", err);
+      }
+      updateHudTelemetry();
+      renderAgentMarkdown();
+    }
+
+    /*************************************************************************
+     * 🔵 VALVE 2: RENDER FUNCTIONS (画面模具映射阀门)
+     *************************************************************************/
+    function showToast(msg, icon = "⚡") {
+      const toast = document.getElementById("os-toast");
+      const iconEl = document.getElementById("os-toast-icon");
+      const msgEl = document.getElementById("os-toast-msg");
+      if (!toast || !msgEl) return;
+      iconEl.textContent = icon;
+      msgEl.textContent = msg;
+      toast.classList.remove("hidden");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 3200);
+    }
+
+    function updateHudTelemetry() {
+      const ids = Object.keys(appState.territories);
+      let unlockedCount = 0;
+      let totalChecks = 0;
+
+      ids.forEach(id => {
+        const t = appState.territories[id];
+        if (t && t.unlocked) unlockedCount++;
+        if (t && Array.isArray(t.checks)) {
+          t.checks.forEach(c => { if (c) totalChecks++; });
+        }
+      });
+
+      const pct = Math.round((unlockedCount / ids.length) * 100);
+      let rank = "见习召唤师 (Apprentice)";
+      if (unlockedCount >= 6) rank = "👑 主权大法师 (Sovereign Archmage)";
+      else if (unlockedCount >= 4) rank = "🔮 高阶架构师 (Arcane Architect)";
+      else if (unlockedCount >= 2) rank = "⚒️ 契约炼金术士 (Alchemist)";
+
+      const rankEl = document.getElementById("hud-rank-badge");
+      const barEl = document.getElementById("hud-xp-bar");
+      const txtEl = document.getElementById("hud-xp-text");
+      const statRealms = document.getElementById("hero-stat-realms");
+      const statChecks = document.getElementById("hero-stat-checks");
+
+      if (rankEl) rankEl.textContent = rank;
+      if (barEl) barEl.style.width = `${Math.max(10, pct)}%`;
+      if (txtEl) txtEl.textContent = `${unlockedCount}/6 结印 (${pct}%)`;
+      if (statRealms) statRealms.textContent = `${unlockedCount} / 6`;
+      if (statChecks) statChecks.textContent = `${totalChecks} / 18`;
+    }
+
+    function renderAtlasSvgNodes() {
+      const layer = document.getElementById("atlas-nodes-layer");
+      if (!layer) return;
+      layer.innerHTML = "";
+
+      ATLAS_TERRITORIES.forEach(item => {
+        const tState = appState.territories[item.id];
+        const isSelected = appState.selectedMonthId === item.id;
+        const isUnlocked = tState && tState.unlocked;
+
+        const strokeColor = isUnlocked ? "#10B981" : (isSelected ? "#00F0FF" : "#FFB800");
+        const glowFill = isUnlocked ? "url(#glowEmerald)" : (isSelected ? "url(#glowCyan)" : "url(#glowAmber)");
+
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("transform", `translate(${item.svgX}, ${item.svgY})`);
+        g.setAttribute("class", "cursor-pointer");
+        g.onclick = (e) => {
+          e.stopPropagation();
+          selectTerritory(item.id);
+        };
+
+        const shortTitle = appState.langMode === "en"
+          ? item.titleEn.split(" · ")[0].replace("The ", "")
+          : item.titleZh.split(" · ")[0];
+        const labelOffsetY = item.svgY < 210 ? 28 : -40;
+
+        g.innerHTML = `
+          ${showGlowLayer ? `<circle cx="0" cy="0" r="${isSelected ? 44 : 28}" fill="${glowFill}" />` : ""}
+          ${isSelected ? `<circle cx="0" cy="0" r="19" fill="none" stroke="${strokeColor}" stroke-width="1.8" class="svg-pulse-ring" />` : ""}
+          <circle cx="0" cy="0" r="${isSelected ? 17 : 13}" fill="#090A0F" stroke="${strokeColor}" stroke-width="${isSelected ? 2.5 : 1.6}" />
+          <circle cx="0" cy="0" r="${isSelected ? 6.5 : 4.5}" fill="${strokeColor}" />
+          <g transform="translate(-56, ${labelOffsetY})">
+            <rect x="0" y="0" width="112" height="24" rx="5" fill="rgba(9,10,15,0.94)" stroke="${isSelected ? '#00F0FF' : (isUnlocked ? '#10B981' : 'rgba(212,163,89,0.4)')}" stroke-width="1"/>
+            <text x="56" y="15" text-anchor="middle" fill="${isSelected ? '#00F0FF' : '#F3EFEA'}" font-family="JetBrains Mono" font-size="10" font-weight="600">
+              ${isUnlocked ? '✓ ' : ''}${item.id} · ${shortTitle}
+            </text>
+          </g>
+        `;
+        layer.appendChild(g);
+      });
+    }
+
+    function renderMonthPills() {
+      const container = document.getElementById("atlas-month-pills");
+      if (!container) return;
+      container.innerHTML = ATLAS_TERRITORIES.map(item => {
+        const isSelected = appState.selectedMonthId === item.id;
+        const isUnlocked = appState.territories[item.id]?.unlocked;
+        const shortName = item.titleZh.split(" · ")[0];
+        return `
+          <button onclick="selectTerritory('${item.id}')"
+            class="px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-all flex items-center gap-1.5 border ${
+              isSelected
+                ? 'bg-silicon-cyan/20 border-silicon-cyan text-silicon-cyan font-bold'
+                : 'bg-obsidian-900 border-white/10 text-stone hover:text-ivory'
+            }">
+            <span>${isUnlocked ? '🟢' : '🟡'}</span>
+            <span>${item.id} · ${shortName}</span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function renderInspectorConsole() {
+      const item = ATLAS_TERRITORIES.find(t => t.id === appState.selectedMonthId) || ATLAS_TERRITORIES[0];
+      const tState = appState.territories[item.id] || { unlocked: false, checks: [false, false, false], url: "", notes: "" };
+
+      document.getElementById("console-id-badge").textContent = item.id;
+      document.getElementById("console-coord").textContent = item.coord;
+
+      const lockBadge = document.getElementById("console-lock-badge");
+      if (tState.unlocked) {
+        lockBadge.className = "px-2.5 py-0.5 rounded-full font-mono text-[11px] bg-emerald/15 text-emerald border border-emerald/40";
+        lockBadge.textContent = "✓ 已结印点亮 (MASTERED)";
+      } else {
+        lockBadge.className = "px-2.5 py-0.5 rounded-full font-mono text-[11px] bg-alchemy-amber/15 text-alchemy-amber border border-alchemy-amber/40";
+        lockBadge.textContent = "⏳ 修炼进行中 (IN PROGRESS)";
+      }
+
+      document.getElementById("console-title-zh").textContent = appState.langMode === "en" ? item.titleEn : item.titleZh;
+      document.getElementById("console-title-en").textContent = item.titleEn;
+      document.getElementById("console-lore-desc").textContent = item.loreDesc;
+      document.getElementById("console-blueprint-title").textContent = item.blueprintTitle;
+      document.getElementById("console-blueprint-code").textContent = item.blueprintCode;
+      document.getElementById("console-deliverable-name").textContent = item.deliverable;
+
+      // Sources
+      const sourcesEl = document.getElementById("console-sources-list");
+      sourcesEl.innerHTML = item.sources.map(src => `
+        <a href="${src.url}" target="_blank" rel="noopener noreferrer"
+           class="p-2.5 rounded-xl bg-obsidian-950 border border-white/10 hover:border-alchemy-gold text-xs font-mono text-ivory flex items-center justify-between gap-2 transition-colors">
+          <span class="truncate">🔗 ${src.name}</span>
+          <span class="text-alchemy-gold text-[10px]">↗</span>
+        </a>
+      `).join("");
+
+      // Sub-tab 2: Load-bearing walls & tunable knobs
+      const wallsEl = document.getElementById("console-walls-list");
+      wallsEl.innerHTML = item.loadBearingWalls.map(w => `<li class="p-2 rounded-lg bg-obsidian-900 border border-white/5">${w}</li>`).join("");
+
+      const knobsEl = document.getElementById("console-knobs-list");
+      knobsEl.innerHTML = item.tunableKnobs.map(k => `<li class="p-2 rounded-lg bg-obsidian-900 border border-white/5">${k}</li>`).join("");
+
+      document.getElementById("console-drill-task").textContent = item.drillTask;
+
+      // Sub-tab 3: Crucible checkboxes
+      const checksEl = document.getElementById("console-gate-checks");
+      checksEl.innerHTML = item.gateQuestions.map((q, idx) => {
+        const checked = Boolean(tState.checks[idx]);
+        return `
+          <label class="flex items-start gap-2.5 p-2.5 rounded-xl bg-obsidian-950 border ${checked ? 'border-emerald/40' : 'border-white/10'} cursor-pointer hover:border-silicon-cyan/40 transition-colors">
+            <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleGateCheck('${item.id}', ${idx}, this.checked)" class="mt-0.5 accent-emerald-400" />
+            <span class="text-xs ${checked ? 'text-emerald font-medium' : 'text-ivory/90'} leading-relaxed">${q}</span>
+          </label>
+        `;
+      }).join("");
+
+      const urlInput = document.getElementById("gate-artifact-url");
+      const notesInput = document.getElementById("gate-field-notes");
+      if (urlInput) urlInput.value = tState.url || "";
+      if (notesInput) notesInput.value = tState.notes || "";
+
+      const verifyBtn = document.getElementById("btn-verify-territory");
+      if (tState.unlocked) {
+        verifyBtn.className = "px-4 py-2 rounded-xl font-mono text-xs font-bold bg-emerald/20 text-emerald border border-emerald/50 hover:bg-emerald/30 transition-all";
+        verifyBtn.textContent = "✓ 已点亮星辰 (点击可取消)";
+      } else {
+        verifyBtn.className = "px-4 py-2 rounded-xl font-mono text-xs font-bold bg-alchemy-gold hover:bg-alchemy-amber text-obsidian-950 shadow-lg transition-all";
+        verifyBtn.textContent = "⚡ 结印点亮此领地";
+      }
+    }
+
+    function renderAllGrimoireCards() {
+      const container = document.getElementById("atlas-view-cards");
+      if (!container) return;
+      container.innerHTML = ATLAS_TERRITORIES.map(item => {
+        const tState = appState.territories[item.id];
+        const isUnlocked = tState && tState.unlocked;
+        return `
+          <div class="os-panel rounded-2xl p-5 flex flex-col justify-between border ${isUnlocked ? 'border-emerald/40' : 'border-white/10'}">
+            <div>
+              <div class="flex items-center justify-between font-mono text-xs mb-3">
+                <span class="px-2 py-0.5 rounded bg-alchemy-gold/20 text-alchemy-gold font-bold">${item.monthLabel}</span>
+                <span class="${isUnlocked ? 'text-emerald' : 'text-stone'}">${isUnlocked ? '✓ MASTERED' : '⏳ PENDING'}</span>
+              </div>
+              <h3 class="font-serif text-2xl text-ivory">${item.titleZh}</h3>
+              <p class="font-mono text-[11px] text-silicon-cyan mt-0.5">${item.titleEn}</p>
+              <p class="text-xs text-stone mt-3 leading-relaxed">${item.loreDesc}</p>
+              <div class="mt-3 p-2.5 rounded-xl bg-obsidian-950 border border-white/10 font-mono text-[11px] text-ivory/90">
+                <div class="text-alchemy-amber mb-1">🎯 毕业造物:</div>
+                <div>${item.deliverable}</div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-xs">
+              <button onclick="selectTerritory('${item.id}'); setAtlasViewMode('map');" class="text-silicon-cyan hover:underline">
+                🔬 打开传功解剖台 →
+              </button>
+              <button onclick="selectTerritory('${item.id}'); copyCurrentRealmBlueprint();" class="px-2.5 py-1 rounded bg-obsidian-800 border border-white/15 text-ivory hover:border-silicon-cyan">
+                📋 复制母版
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderSpiritCompass() {
+      const grid = document.getElementById("spirit-compass-grid");
+      if (!grid) return;
+      grid.innerHTML = SPIRIT_COMPASS_DATA.map(item => `
+        <div class="os-panel rounded-2xl p-5 border-white/10 hover:border-silicon-cyan/40 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 pb-2.5 border-b border-white/10">
+              <span class="font-serif text-2xl text-ivory">${item.spirit}</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-obsidian-950 border border-white/15 text-${item.color}">${item.badge}</span>
+            </div>
+            <div class="mt-3 space-y-2 text-xs leading-relaxed">
+              <div>
+                <span class="font-mono text-emerald font-semibold">⚡ 真法力主场:</span>
+                <p class="text-ivory/90 mt-0.5">${item.superpower}</p>
+              </div>
+              <div>
+                <span class="font-mono text-crimson font-semibold">⚠️ 致命盲区:</span>
+                <p class="text-stone mt-0.5">${item.blindspot}</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-white/10 text-[11px] font-mono text-alchemy-gold leading-relaxed">
+            ${item.isolationRule}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderTruthVsHypeMatrix() {
+      const grid = document.getElementById("manual-panel-truth");
+      if (!grid) return;
+      grid.innerHTML = TRUTH_VS_HYPE_DATA.map(item => `
+        <div class="os-panel rounded-2xl p-5 space-y-3">
+          <div class="font-mono text-xs text-alchemy-gold font-bold border-b border-white/10 pb-2">${item.domain}</div>
+          <div class="p-3 rounded-xl bg-crimson/10 border border-crimson/30 text-xs text-ivory/90 leading-relaxed">
+            ${item.hype}
+          </div>
+          <div class="p-3 rounded-xl bg-emerald/10 border border-emerald/30 text-xs text-ivory/90 leading-relaxed">
+            ${item.truth}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    /*************************************************************************
+     * 🟢 VALVE 3: INTERACTIVE HANDLERS & MUTATIONS (交互机关与存档闭环)
+     *************************************************************************/
+    function selectTerritory(monthId) {
+      appState.selectedMonthId = monthId;
+      savePersistedState();
+      renderAtlasSvgNodes();
+      renderMonthPills();
+      renderInspectorConsole();
+    }
+
+    function switchConsoleTab(tabName) {
+      appState.activeConsoleTab = tabName;
+      const tabs = ["blueprint", "anatomy", "crucible"];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const panel = document.getElementById(`tab-panel-${t}`);
+        if (t === tabName) {
+          btn.className = "py-2 px-2 rounded-lg bg-obsidian-800 text-silicon-cyan font-semibold border border-silicon-cyan/40 transition-all";
+          panel.classList.remove("hidden");
+        } else {
+          btn.className = "py-2 px-2 rounded-lg text-stone hover:text-ivory transition-all";
+          panel.classList.add("hidden");
+        }
+      });
+    }
+
+    function setAtlasViewMode(mode) {
+      appState.atlasViewMode = mode;
+      const mapEl = document.getElementById("atlas-view-map");
+      const cardsEl = document.getElementById("atlas-view-cards");
+      const btnMap = document.getElementById("btn-view-map");
+      const btnCards = document.getElementById("btn-view-cards");
+
+      if (mode === "map") {
+        mapEl.classList.remove("hidden");
+        cardsEl.classList.add("hidden");
+        btnMap.className = "px-3 py-1.5 rounded-lg bg-alchemy-gold text-obsidian-950 font-semibold transition-all";
+        btnCards.className = "px-3 py-1.5 rounded-lg text-stone hover:text-ivory transition-all";
+      } else {
+        mapEl.classList.add("hidden");
+        cardsEl.classList.remove("hidden");
+        btnCards.className = "px-3 py-1.5 rounded-lg bg-alchemy-gold text-obsidian-950 font-semibold transition-all";
+        btnMap.className = "px-3 py-1.5 rounded-lg text-stone hover:text-ivory transition-all";
+        renderAllGrimoireCards();
+      }
+    }
+
+    function toggleGateCheck(monthId, checkIdx, isChecked) {
+      if (!appState.territories[monthId]) return;
+      appState.territories[monthId].checks[checkIdx] = isChecked;
+      const allThreeChecked = appState.territories[monthId].checks.every(Boolean);
+      if (allThreeChecked && !appState.territories[monthId].unlocked) {
+        appState.territories[monthId].unlocked = true;
+        showToast(`恭喜！${monthId} 三项试炼全通，星辰已自动点亮！`, "🎉");
+      }
+      savePersistedState();
+      renderAtlasSvgNodes();
+      renderMonthPills();
+      renderInspectorConsole();
+    }
+
+    function saveCurrentGateInputs() {
+      const mId = appState.selectedMonthId;
+      const urlVal = document.getElementById("gate-artifact-url")?.value || "";
+      const notesVal = document.getElementById("gate-field-notes")?.value || "";
+      if (appState.territories[mId]) {
+        appState.territories[mId].url = urlVal;
+        appState.territories[mId].notes = notesVal;
+        savePersistedState();
+      }
+    }
+
+    function toggleTerritoryMastery() {
+      const mId = appState.selectedMonthId;
+      const t = appState.territories[mId];
+      if (!t) return;
+      t.unlocked = !t.unlocked;
+      if (t.unlocked) {
+        t.checks = [true, true, true];
+        showToast(`${mId} 领地星辰已结印点亮！法力值上升！`, "⚡");
+      } else {
+        showToast(`${mId} 领地已设为待修炼状态`, "↺");
+      }
+      savePersistedState();
+      renderAtlasSvgNodes();
+      renderMonthPills();
+      renderInspectorConsole();
+    }
+
+    function resetAllProgress() {
+      Object.keys(appState.territories).forEach((k, idx) => {
+        appState.territories[k].unlocked = idx === 0;
+        appState.territories[k].checks = idx === 0 ? [true, true, true] : [false, false, false];
+      });
+      savePersistedState();
+      renderAtlasSvgNodes();
+      renderMonthPills();
+      renderInspectorConsole();
+      showToast("已重置星图打卡状态（保留 M01 初始点亮）", "↺");
+    }
+
+    // Export & Import JSON State
+    function exportConjurerState() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", `conjurer_os_backup_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      showToast("法典修炼存档 JSON 已导出到本地！", "💾");
+    }
+
+    function triggerImportState() {
+      document.getElementById("import-json-input")?.click();
+    }
+
+    function handleImportFile(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && parsed.territories) {
+            appState = { ...appState, ...parsed };
+            savePersistedState();
+            renderAtlasSvgNodes();
+            renderMonthPills();
+            renderInspectorConsole();
+            showToast("成功导入并恢复召唤师存档！", "✅");
+          }
+        } catch {
+          showToast("存档文件格式有误，请检查 JSON 文件", "⚠️");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // Live Spell Compiler Engine
+    function loadSpellPreset(presetKey) {
+      const p = SPELL_PRESETS[presetKey] || SPELL_PRESETS.singleFile;
+      document.getElementById("compiler-preset-label").textContent = `当前母版: ${p.label}`;
+      document.getElementById("spell-role").value = p.role;
+      document.getElementById("spell-mission").value = p.mission;
+      document.getElementById("spell-constraints").value = p.constraints;
+      document.getElementById("spell-contract").value = p.contract;
+      compileLiveSpell();
+    }
+
+    function injectRawIdeaIntoSlots() {
+      const raw = document.getElementById("raw-idea-input")?.value.trim();
+      if (!raw) {
+        showToast("请先在输入框写下一句你的大白话想法！", "💡");
+        return;
+      }
+      document.getElementById("spell-mission").value = `Build and architect the following product/content requirement with production-grade precision: "${raw}". Include clean modular state and bilingual support.`;
+      compileLiveSpell();
+      showToast("已将你的想法自动炼化装填进 XML 契约槽！", "🔥");
+    }
+
+    function compileLiveSpell() {
+      const role = document.getElementById("spell-role")?.value || "";
+      const mission = document.getElementById("spell-mission")?.value || "";
+      const constraints = document.getElementById("spell-constraints")?.value || "";
+      const contract = document.getElementById("spell-contract")?.value || "";
+
+      const useAntiSycophancy = document.getElementById("switch-antisycophancy")?.checked;
+      const useValves = document.getElementById("switch-valves")?.checked;
+      const useEval = document.getElementById("switch-eval")?.checked;
+
+      let xml = `<conjurer_os_contract version="2026.1">\n`;
+      xml += `  <role_and_axiom>\n    ${role}\n  </role_and_axiom>\n\n`;
+      xml += `  <mission_and_context>\n    ${mission}\n  </mission_and_context>\n\n`;
+      xml += `  <negative_boundaries>\n    ${constraints}\n  </negative_boundaries>\n\n`;
+      xml += `  <output_contract>\n    ${contract}\n  </output_contract>\n`;
+
+      if (useAntiSycophancy || useValves || useEval) {
+        xml += `\n  <mandatory_transmission_protocols>\n`;
+        if (useAntiSycophancy) {
+          xml += `    - [ANTI-SYCOPHANCY SHIELD]: Do NOT flatter me. First list 3 fatal blind spots or ruin risks in my premise.\n`;
+        }
+        if (useValves) {
+          xml += `    - [3-VALVE X-RAY ANATOMY]: After delivering the code/solution, explicitly point out the 3 Load-Bearing Walls (STATE valve, RENDER valve, STORAGE valve) and 3 parameters I can tweak myself.\n`;
+        }
+        if (useEval) {
+          xml += `    - [3-CASE GOLDEN EVAL]: Verify the output against 1 normal input, 1 empty/edge input, and 1 adversarial boundary case.\n`;
+        }
+        xml += `  </mandatory_transmission_protocols>\n`;
+      }
+      xml += `</conjurer_os_contract>`;
+
+      const outEl = document.getElementById("compiled-spell-output");
+      if (outEl) outEl.textContent = xml;
+    }
+
+    function copyCompiledSpell() {
+      const text = document.getElementById("compiled-spell-output")?.textContent || "";
+      copyRawText(text, "编译后的工业级 XML 真法术已复制！");
+    }
+
+    function copyCurrentRealmBlueprint() {
+      const item = ATLAS_TERRITORIES.find(t => t.id === appState.selectedMonthId) || ATLAS_TERRITORIES[0];
+      copyRawText(item.blueprintCode, `${item.id} 真法术母版已复制到剪贴板！`);
+    }
+
+    function copyRedTeamAuditPayload() {
+      const draft = document.getElementById("redteam-draft-input")?.value.trim() || "[请在此处粘贴你的方案或文章草稿]";
+      const payload = `<red_team_falsification_audit>
+  <role>You are a ruthless Popperian Epistemologist (David Deutsch framework), Nassim Taleb Non-Ergodic Risk Auditor, and Y Combinator Partner.</role>
+  <strict_prohibition>ZERO sycophancy. ZERO polite compliments. Do NOT validate my biases.</strict_prohibition>
+  <target_draft_to_audit>
+    ${draft}
+  </target_draft_to_audit>
+  <required_audit_output>
+    1. THREE FATAL BLIND SPOTS: Why this plan/article might fail in the real world.
+    2. HARD-TO-VARY TEST: Which parts are vague fluff vs. structural truth? Cut 30% of the noise.
+    3. 48-HOUR FALSIFIABLE EXPERIMENT: The fastest way to test this with real users/readers in 48 hours.
+  </required_audit_output>
+</red_team_falsification_audit>`;
+      copyRawText(payload, "🗡️ 破妄镜冷酷审计咒已复制！快去投喂给 AI 吧！");
+    }
+
+    // 3-Valve Code X-Ray Interactive Highlighter
+    function highlightValve(valveNum) {
+      const display = document.getElementById("xray-code-display");
+      const title = document.getElementById("xray-status-title");
+      [1, 2, 3].forEach(n => {
+        const btn = document.getElementById(`valve-btn-${n}`);
+        if (btn) {
+          btn.className = n === valveNum
+            ? "w-full text-left p-3.5 rounded-xl bg-obsidian-950 border-2 border-silicon-cyan transition-all"
+            : "w-full text-left p-3.5 rounded-xl bg-obsidian-950 border border-white/10 opacity-75 hover:opacity-100 transition-all";
+        }
+      });
+
+      const v1Class = valveNum === 1 ? "p-3 rounded-lg bg-alchemy-amber/15 border-l-4 border-alchemy-amber text-ivory" : "p-3 opacity-45";
+      const v2Class = valveNum === 2 ? "p-3 rounded-lg bg-silicon-cyan/15 border-l-4 border-silicon-cyan text-ivory" : "p-3 opacity-45";
+      const v3Class = valveNum === 3 ? "p-3 rounded-lg bg-emerald/15 border-l-4 border-emerald text-ivory" : "p-3 opacity-45";
+
+      if (title) {
+        const names = {
+          1: "🔬 正在透视：🟡 阀门一 (STATE 数据水源 — 改内容只动这里)",
+          2: "🔬 正在透视：🔵 阀门二 (RENDER 画面模具 — 改样式只动这里)",
+          3: "🔬 正在透视：🟢 阀门三 (MUTATE & PERSIST — 点击与本地存档闭环)"
+        };
+        title.textContent = names[valveNum];
+      }
+
+      if (display) {
+        display.innerHTML = `
+<pre class="${v1Class}">// 🟡 VALVE 1: STATE 数据水源 (你平时 80% 只需要改这个数组！)
+const QUEST_CARDS = [
+  { id: "Q1", word: "Sovereign", reward: 50, done: false },
+  { id: "Q2", word: "Epistemology", reward: 80, done: false }
+];</pre>
+<pre class="${v2Class}">// 🔵 VALVE 2: RENDER 画面模具 (用 .map 把上面数据浇铸成 HTML 卡片)
+function renderBoard() {
+  document.getElementById("board").innerHTML = QUEST_CARDS.map(c =&gt; \`
+    &lt;div class="p-4 rounded-xl bg-obsidian-800 border border-white/10"&gt;
+      &lt;h4&gt;\${c.word} (+\${c.reward} Coins)&lt;/h4&gt;
+      &lt;button onclick="completeCard('\${c.id}')"&gt;\${c.done ? '✓ 已通关' : '⚡ 挑战'}&lt;/button&gt;
+    &lt;/div&gt;
+  \`).join('');
+}</pre>
+<pre class="${v3Class}">// 🟢 VALVE 3: MUTATE &amp; PERSIST 机关与存档 (改状态 ➔ 存本地 ➔ 刷新画面)
+function completeCard(id) {
+  const card = QUEST_CARDS.find(c =&gt; c.id === id);
+  if (card) card.done = !card.done;
+  localStorage.setItem('MY_SAVE', JSON.stringify(QUEST_CARDS));
+  renderBoard(); // 重新呼叫阀门二更新画面！
+}</pre>`;
+      }
+    }
+
+    function copyXrayTemplate() {
+      const code = `// 3-VALVE SINGLE-FILE GOLDEN SKELETON\nconst STATE = [{ id: 1, title: "Level 1", done: false }];\nfunction render() {\n  document.getElementById("app").innerHTML = STATE.map(item => \`<div onclick="toggle(\${item.id})">\${item.title}: \${item.done}</div>\`).join("");\n}\nfunction toggle(id) {\n  const target = STATE.find(x => x.id === id);\n  if (target) target.done = !target.done;\n  localStorage.setItem("SAVE", JSON.stringify(STATE));\n  render();\n}`;
+      copyRawText(code, "30行「三阀门」黄金骨架已复制！");
+    }
+
+    function switchManualTab(tabKey) {
+      const keys = ["valves", "git", "devtools", "truth"];
+      keys.forEach(k => {
+        const btn = document.getElementById(`manual-tab-${k}`);
+        const panel = document.getElementById(`manual-panel-${k}`);
+        if (k === tabKey) {
+          btn.className = "px-4 py-2.5 rounded-xl bg-alchemy-gold text-obsidian-950 font-bold transition-all";
+          panel.classList.remove("hidden");
+        } else {
+          btn.className = "px-4 py-2.5 rounded-xl bg-obsidian-800 text-ivory hover:border-silicon-cyan border border-white/10 transition-all";
+          panel.classList.add("hidden");
+        }
+      });
+    }
+
+    // SVG Map Pan, Zoom & Layer Toggles
+    function updateMapTransform() {
+      const g = document.getElementById("atlas-pan-zoom-group");
+      if (g) {
+        g.setAttribute("transform", `translate(${mapPanX}, ${mapPanY}) scale(${mapZoom})`);
+      }
+    }
+
+    function zoomMap(factor) {
+      mapZoom = Math.min(2.2, Math.max(0.65, mapZoom * factor));
+      updateMapTransform();
+    }
+
+    function resetMapTransform() {
+      mapZoom = 1;
+      mapPanX = 0;
+      mapPanY = 0;
+      updateMapTransform();
+    }
+
+    function toggleMapLayer(layerName, visible) {
+      if (layerName === "contours") {
+        const el = document.getElementById("map-layer-contours");
+        if (el) el.style.display = visible ? "block" : "none";
+      } else if (layerName === "links") {
+        const el = document.getElementById("map-layer-links");
+        if (el) el.style.display = visible ? "block" : "none";
+      } else if (layerName === "glow") {
+        showGlowLayer = visible;
+        renderAtlasSvgNodes();
+      }
+    }
+
+    function initMapInteractions() {
+      const wrap = document.getElementById("atlas-canvas-wrap");
+      if (!wrap) return;
+
+      wrap.addEventListener("mousedown", (e) => {
+        isMapDragging = true;
+        dragOriginX = e.clientX - mapPanX;
+        dragOriginY = e.clientY - mapPanY;
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        const hudCoords = document.getElementById("hud-coords");
+        if (hudCoords) {
+          hudCoords.textContent = `X:${String(e.clientX).padStart(4, '0')} // Y:${String(e.clientY).padStart(4, '0')}`;
+        }
+        if (!isMapDragging) return;
+        mapPanX = e.clientX - dragOriginX;
+        mapPanY = e.clientY - dragOriginY;
+        updateMapTransform();
+      });
+
+      window.addEventListener("mouseup", () => { isMapDragging = false; });
+
+      // Mobile Touch Support
+      wrap.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 1) {
+          isMapDragging = true;
+          dragOriginX = e.touches[0].clientX - mapPanX;
+          dragOriginY = e.touches[0].clientY - mapPanY;
+        }
+      }, { passive: true });
+
+      wrap.addEventListener("touchmove", (e) => {
+        if (!isMapDragging || e.touches.length !== 1) return;
+        mapPanX = e.touches[0].clientX - dragOriginX;
+        mapPanY = e.touches[0].clientY - dragOriginY;
+        updateMapTransform();
+      }, { passive: true });
+
+      wrap.addEventListener("touchend", () => { isMapDragging = false; });
+    }
+
+    // Dual-Track (Human / Agent) & Bilingual Switches
+    function switchTrack(mode) {
+      const humanEl = document.getElementById("track-human");
+      const agentEl = document.getElementById("track-agent");
+      const btnHuman = document.getElementById("btn-mode-human");
+      const btnAgent = document.getElementById("btn-mode-agent");
+
+      if (mode === "agent") {
+        humanEl.classList.add("hidden");
+        agentEl.classList.remove("hidden");
+        btnAgent.className = "px-2.5 py-1 rounded-md text-xs font-mono bg-silicon-cyan text-obsidian-950 font-semibold transition-all";
+        btnHuman.className = "px-2.5 py-1 rounded-md text-xs font-mono text-stone hover:text-ivory transition-all";
+        renderAgentMarkdown();
+      } else {
+        agentEl.classList.add("hidden");
+        humanEl.classList.remove("hidden");
+        btnHuman.className = "px-2.5 py-1 rounded-md text-xs font-mono bg-alchemy-gold text-obsidian-950 font-semibold transition-all";
+        btnAgent.className = "px-2.5 py-1 rounded-md text-xs font-mono text-stone hover:text-silicon-cyan transition-all";
+      }
+    }
+
+    function toggleLanguageMode() {
+      appState.langMode = appState.langMode === "bilingual" ? "en" : "bilingual";
+      const zhBlocks = document.querySelectorAll(".zh-block");
+      zhBlocks.forEach(el => {
+        el.style.display = appState.langMode === "en" ? "none" : "";
+      });
+      renderAtlasSvgNodes();
+      renderInspectorConsole();
+      showToast(appState.langMode === "en" ? "Switched to English-First Focus View" : "已切换至中英双语对照传功视图", "🌐");
+    }
+
+    function renderAgentMarkdown() {
+      const pre = document.getElementById("agent-markdown-pre");
+      if (!pre) return;
+
+      const realmsSummary = ATLAS_TERRITORIES.map(r => {
+        const st = appState.territories[r.id];
+        return `- [${st?.unlocked ? 'x' : ' '}] **${r.id}: ${r.titleEn}** (${r.titleZh})\n  - Deliverable: ${r.deliverable}\n  - Proof-of-Work URL: ${st?.url || 'Pending'}\n  - Field Notes: ${st?.notes || 'None'}`;
+      }).join("\n");
+
+      const md = `# CONJURER OS // MACHINE-READABLE CAPABILITY & TOPOLOGY STREAM
+- **Domain**: ${CONJURER_CONFIG.domain} (Companion to ${CONJURER_CONFIG.mainPortalUrl})
+- **Identity**: ${CONJURER_CONFIG.handle} (Apprentice Conjurer -> Sovereign Cognitive Synthesizer)
+- **Architectural Standard**: Single-File HTML/Tailwind/JS (3-Valve Pattern) + Python Pydantic Native Structured Outputs (\`response_schema\`) + Git Tag Workflow.
+
+## 1. 6-MONTH SPATIAL ATLAS & MASTERY STATE
+${realmsSummary}
+
+## 2. MANDATORY AI COLLABORATION RULES FOR ALL AGENTS READING THIS SITE
+1. **Anti-Sycophancy First**: Point out 3 non-ergodic ruin risks or logical blind spots before generating code or prose.
+2. **3-Valve Code Transparency**: Always separate \`STATE_CONFIG\`, \`RENDER_VIEW\`, and \`STORAGE_MUTATION\`, and explain the 3 tunable knobs.
+3. **One Build, Four Harvests**: Every technical artifact must yield: (1) Live App, (2) Grimoire Blueprint, (3) English-First X Case Study, (4) Chinese Human OS Essay.
+
+## 3. RAW JSON STATE SNAPSHOT
+\`\`\`json
+${JSON.stringify(appState.territories, null, 2)}
+\`\`\``;
+      pre.textContent = md;
+    }
+
+    function copyAgentPayload() {
+      const text = document.getElementById("agent-markdown-pre")?.textContent || "";
+      copyRawText(text, "🤖 AI Agent 拓扑协议 Markdown 已复制！");
+    }
+
+    // Spark Modal & Mana Modal
+    let sparkCursor = 0;
+    function openSparkModal() {
+      document.getElementById("spark-modal")?.classList.remove("hidden");
+      rollSparkModal();
+    }
+    function closeSparkModal() {
+      document.getElementById("spark-modal")?.classList.add("hidden");
+    }
+    function rollSparkModal() {
+      const item = SPARK_LIBRARY[sparkCursor % SPARK_LIBRARY.length];
+      sparkCursor++;
+      document.getElementById("spark-modal-tag").textContent = item.tag;
+      document.getElementById("spark-modal-quote-zh").textContent = item.zh;
+      document.getElementById("spark-modal-quote-en").textContent = item.en;
+      document.getElementById("spark-modal-action").textContent = item.action;
+    }
+
+    let oracleCursor = 0;
+    function openManaModal() {
+      document.getElementById("mana-modal")?.classList.remove("hidden");
+      rollOracleCard();
+    }
+    function closeManaModal() {
+      document.getElementById("mana-modal")?.classList.add("hidden");
+    }
+    function selectManaAmount(amount) {
+      appState.selectedManaAmount = amount;
+      const b1 = document.getElementById("mana-btn-1");
+      const b6 = document.getElementById("mana-btn-6");
+      if (amount === "1.00") {
+        b1.className = "p-3.5 rounded-xl bg-obsidian-950 border-2 border-alchemy-gold text-left";
+        b6.className = "p-3.5 rounded-xl bg-obsidian-950 border border-white/15 text-left";
+      } else {
+        b6.className = "p-3.5 rounded-xl bg-obsidian-950 border-2 border-silicon-cyan text-left";
+        b1.className = "p-3.5 rounded-xl bg-obsidian-950 border border-white/15 text-left";
+      }
+      rollOracleCard();
+    }
+    function rollOracleCard() {
+      const c = ORACLE_CARDS[oracleCursor % ORACLE_CARDS.length];
+      oracleCursor++;
+      document.getElementById("oracle-card-title").textContent = c.title;
+      document.getElementById("oracle-card-desc").textContent = c.desc;
+    }
+    function executeManaCheckout() {
+      const link = CONJURER_CONFIG.stripeTipLinks[appState.selectedManaAmount];
+      showToast(`已激活 $${appState.selectedManaAmount} 魔法续杯通道！感谢加持算力！`, "🧪");
+      if (link && link.startsWith("http")) {
+        window.open(link, "_blank", "noopener,noreferrer");
+      }
+    }
+
+    // Universal Clipboard Helper (iFrame safe)
+    function copyRawText(text, successMsg = "已复制到剪贴板！") {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        showToast(successMsg, "📋");
+      } catch (err) {
+        console.error("Copy error:", err);
+      }
+    }
+
+    // Keyboard ESC listener
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeSparkModal();
+        closeManaModal();
+      }
+    });
+
+    // Initialize Application on Window Load
+    window.onload = function () {
+      loadPersistedState();
+      updateHudTelemetry();
+      renderAtlasSvgNodes();
+      renderMonthPills();
+      renderInspectorConsole();
+      renderAllGrimoireCards();
+      loadSpellPreset("singleFile");
+      renderSpiritCompass();
+      renderTruthVsHypeMatrix();
+      highlightValve(1);
+      initMapInteractions();
+    };
+  </script>
+</body>
+</html>
