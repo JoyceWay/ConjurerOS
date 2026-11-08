@@ -1,12 +1,12 @@
 # ConjurerOS
 
-Conjurer OS — 召唤师硅基法典 · conjurer.us (v1)
+Conjurer OS — 召唤师硅基法典 · os.conjurer.us (v1)
 
 Single-file static site (`index.html`). No build step.
 
 ## Deploy
 
-Vercel: import this repo, framework preset "Other" (static), deploy. Custom domain: conjurer.us.
+Cloudflare Pages: connect this repo, deploy. Custom domain: os.conjurer.us.
 
 ## Money
 
